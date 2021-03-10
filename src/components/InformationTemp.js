@@ -14,6 +14,7 @@ import iconOne from '../img/iconOne.png'
 import iconTwo from '../img/iconTwo.png';
 import iconThree from '../img/iconThree.png'
 import { actions } from '../Redux/actions/staticAction'
+import Chart2 from './Chart2'
 
 
 
@@ -90,6 +91,8 @@ export default withStyles(useStyles)(function Information() {
     const user = ReducerData.user
     const dispatch = useDispatch()
     const [value, setValue] = useState("Day")
+    const [more, setMore] = useState(false);
+
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
@@ -369,6 +372,25 @@ export default withStyles(useStyles)(function Information() {
                     </div>
                 </Container>
             </div>
+            <div className="row mt-0 d-flex moreBtn justify-content-center">
+                <div className="col d-flex justify-content-center" onClick={() => {
+                    setMore(!more)
+
+                }}>
+                    {more ?
+                        <>
+                            <p className="moreTxt" >Less-</p>
+                            
+                            <Chart2 />
+                        </>
+                        : <p className="moreTxt" >More+</p>
+
+                    }
+
+                </div>
+
+            </div>
         </div>
     )
 })
+
