@@ -24,54 +24,29 @@ const initialState = {
 };
 
 const staticData = {
-
-    //  setStaticData(state, action) {
-    //      
-    // //   state.sumStatic=action.payload.viewers.map((viewer) =>new Date(viewer.data))
-    //     state.dataStatic=action.payload;
-    //      
-    //     state.sumStatic.viewer=sumData(state.dataStatic.viewers);
-    //      
-    //     state.sumStatic.contactOptions=sumData(state.dataStatic.contactOptions);
-    //     state.sumStatic.submitioms=sumData(state.dataStatic.submitioms);
-    //      
-
-    // },
     setJwt(state, action) {
         debugger
-        state.jwt = (action.payload);
-        // state.sumStatic.contactOptions=sumData(action.payload.contactOptions);
-        // state.sumStatic.submitioms=sumData(action.payload.submitioms);  
     },
     setUser(state, action) {
         debugger
         state.user = (action.payload);
-        // state.sumStatic.contactOptions=sumData(action.payload.contactOptions);
-        // state.sumStatic.submitioms=sumData(action.payload.submitioms);  
     },
     setSumStatic(state, action) {
         state.AllProject = (action.payload);
-        // state.sumStatic.contactOptions=sumData(action.payload.contactOptions);
-        // state.sumStatic.submitioms=sumData(action.payload.submitioms);  
     },
     setProjectStatic(state, action) {
-
         state.leaderStatic.sumProjects = action.payload
     },
     setProjectData(state, action) {
-
         state.AllProject = action.payload
     },
     setTaskStatic(state, action) {
         state.leaderStatic.sumTasks = action.payload
-
     },
     setTaskData(state, action) {
-
         state.AllTask = action.payload
     },
     setTaskChart(state = initialState, action) {
-
         let allData = action.payload
         const arr = [...state.tasks];
         for (let i = 0; i < allData.length; i++) {
@@ -170,9 +145,6 @@ const staticData = {
     setPaperData(state, action) {
         state.AllPapers = action.payload
     },
-    ClickFilter(state, action) {
-        state.isClicked = action.payload
-    }
 };
 
 export default produce((state, action) => createReducer(state, action, staticData), initialState);

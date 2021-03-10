@@ -48,9 +48,9 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         method: 'GET', headers: { 'authorization': jwt }
       })
       .then((res) => {
-        if (res.status === 401) {
-          window.location.assign(`https://dev.leader.codes/login`);
-        }
+        // if (res.status === 401) {
+        //   window.location.assign(`https://dev.leader.codes/login`);
+        // }
         return res.json();
       })
       .then((result) => {

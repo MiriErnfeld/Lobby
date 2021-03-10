@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
+import moment from 'moment';
 
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
-
+  let currentYear = moment().format("YYYY")
   const state = {
     series: [
 
@@ -30,12 +31,9 @@ export default function ApexChart() {
     options: {
 
       title: {
-        text: "Total Last Year",
+        text: `Total Year ${currentYear}`,
         align: 'center',
         margin: 15,
-        // marginBottom: 25,
-        // offsetX: 0,
-        // offsetY: 0,
         floating: false,
         style: {
           fontSize: '12px',

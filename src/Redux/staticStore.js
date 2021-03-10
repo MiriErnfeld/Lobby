@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {getStaticData} from './middleware/crudMiddleware'
 import staticDetailsReducer from './reducers/staticDetailsReducer'
-// ,getStaticTask,getStaticPapers,getStaticContacts
 
 
 const reducer = combineReducers({staticDetailsReducer});
