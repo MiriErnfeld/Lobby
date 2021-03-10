@@ -86,6 +86,8 @@ const useStyles = () => ({
 })
 export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
+    debugger
+    const user = ReducerData.user
     const dispatch = useDispatch()
     const [value, setValue] = useState("Day")
 
@@ -268,7 +270,7 @@ export default withStyles(useStyles)(function Information() {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sm={3}>
-                        <Paper className="paperTwo" onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }} style={{ padding: 10, background: '#ECFAFA', cursor: 'pointer', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
+                        <Paper className="paperTwo" onClick={() => { window.location.assign(`https://papers.dev.leader.codes/admin/${user.username}`) }} style={{ padding: 10, background: '#ECFAFA', cursor: 'pointer', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Papers {" "}
                             </div>
