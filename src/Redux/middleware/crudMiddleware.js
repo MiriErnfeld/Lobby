@@ -19,6 +19,7 @@ export const getCookie = (c_name) => {
 //I want to get the kind of the jwt according to the url
 
 let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI4dEZnM08xQW5mVmRkamdEWVFKaWkzcXNFM2gxIiwiZW1haWwiOiJ0c0BnbWFpbC5jb20iLCJpYXQiOjE2MTUzNjU2ODh9.znsJQnFsJVc0ehuT-Rk57gnyDuwtOoKxfdz8Kfo5iw8";
+// let jwt = ""
 
 const getJwt = (url) => {
   url.href.includes('dev') ?
@@ -31,7 +32,7 @@ const getJwt = (url) => {
           .filter(s => s.includes('stgJwt'))[0].split("=").pop() : null
       : jwt = document.cookie.includes('jwt') ?
         document.cookie.split(";")
-          .filter(s => s.includes('devJwt'))[0].split("=").pop() : null
+          .filter(s => s.includes('jwt'))[0].split("=").pop() : null
 
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
@@ -39,7 +40,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
   if (action.type === 'INIT_DATA') {
     let url = window.location;
     let userName = (url.pathname.split('/')[1]);
-    // getJwt(url);
+    getJwt(url);
     dispatch(actions.setJwt(jwt))
 
     return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
