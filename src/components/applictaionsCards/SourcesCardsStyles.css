@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.warpDiv{
+    /* margin-right: 18%;
+    margin-left: 18%;
+    margin-bottom: 11%; */
+}
+
+.imgProfil{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.myCard{
+    width: 11rem;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.myCardTitle{
+    border-bottom-left-radius: 7px !important;
+    border-bottom-right-radius:7px !important;
+    color: white !important;
+    font-size: 13px;
+    text-align: center;
+
+}
+
+.moreTxt{
+    color: #75798E;
+    font-weight: bold;
+    font-family: 'Roboto',sans-serif;
+}
+
+.appIcon{
+    width: 120px
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-family: Roboto,sans-serif;
+
+}
+
+.heyTxt{
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    min-height: 30px;
+    }
+
+.divTitle{
+    text-align: center
+    }
+
+.myCardText{
+    border-bottom-left-radius: 7px !important;
+    border-bottom-right-radius:7px !important;
+    color: white !important;
+    font-size: 11px;   
+    font-family: 'Roboto',sans-serif; 
+    line-height: normal;
+    text-align: center;
+}
+
+
+.txtCard{
+    color: white;
+    
+}
+
+.box {
+    height: 165px;    
+    overflow: hidden;
+  }
+
+  
+.hid-box {
+    top: 6%;
+    position: relative;
+    transition: all .3s ease-out;
+    background: #428bca;
+    height: 100%;
+  }
+  
+  .box:hover > .hid-box{
+    top: 3%;
+  }
+
+  .commingSoon{
+    color: white !important;
+    font-size: 17px;   
+    font-family: 'Roboto',sans-serif; 
+    line-height: normal;
+    text-align: center;
+  }
+
+  .moreBtn{
+      cursor: pointer;
+  }
