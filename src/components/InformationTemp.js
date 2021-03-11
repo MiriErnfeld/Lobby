@@ -345,6 +345,7 @@ export default withStyles(useStyles)(function Information() {
             {more ?
                 <>
                     <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>Less-</p>
+                    
                     <div className="div-container">
                         <Container className="p-0">
                             <div class="container p-0">
@@ -380,11 +381,14 @@ export default withStyles(useStyles)(function Information() {
                     <Chart2 />
                     <div className="add-div"></div>
                 </>
-                : <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>More+</p>
+                : <p className="moreTxt1  moreBtn1 " onClick={() => { setMore(!more) }}>More+</p>
+                function cssChangePadding(){
+                    
+                }
                 // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
 
-            {/* </div> */}
+          {/* $(".in-small-profil").css("padding-top", "unset") */}
         </div>
     )
 })

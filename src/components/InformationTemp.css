@@ -12,11 +12,9 @@
     padding-top: 0 !important;
 }
 .btn-show{
-    cursor: pointer;
+cursor: pointer;
 font-weight: bold !important;
 text-align: center;
-
-/* border:solid ; */
 font-size: 20px;
 }
 .filterBy{
