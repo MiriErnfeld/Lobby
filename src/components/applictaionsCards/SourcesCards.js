@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import box from '../../assets/images/box.svg';
 import crm from '../../assets/images/crm.svg';
 import papers from '../../assets/images/papers.svg';
 import time from '../../assets/images/time.svg';
 import funnel from '../../assets/images/funnel.svg';
 import hub from '../../assets/images/hub.svg';
-import chat from '../../assets/images/chat.svg';
+// import chat from '../../assets/images/chat.svg';
 import clocks from '../../assets/images/clocks.svg';
 import BLDR from '../../assets/images/BLDR.svg';
 import knowme from '../../assets/images/knowme.svg';
@@ -19,33 +19,33 @@ import hoverClocks from '../../assets/images/hoverClocks.svg';
 import hoverBox from '../../assets/images/hoverBox.svg';
 import hoverFunnel from '../../assets/images/hoverFunnel.svg';
 import hoverHub from '../../assets/images/hoverHub.svg';
-import hoverChat from '../../assets/images/hoverChat.svg';
-import hoverStories from '../../assets/images/hoverStories.svg';
+// import hoverChat from '../../assets/images/hoverChat.svg';
+// import hoverStories from '../../assets/images/hoverStories.svg';
 import hoverPapers from '../../assets/images/hoverPapers.svg';
 import hoverCrm from '../../assets/images/hoverCrm.svg';
 import hoverTime from '../../assets/images/hoverTime.svg';
 import user from '../../assets/images/user.svg'
-import ribbon from '../../assets/images/ribbon.svg'
-import SourcesCardsStyles from './SourcesCardsStyles.css';
-import { connect } from 'react-redux';
+// import ribbon from '../../assets/images/ribbon.svg'
+// import SourcesCardsStyles from './SourcesCardsStyles.css';
+// import { connect } from 'react-redux';
 // import { getUser } from '../../redux/actions/user.action';
-import ReactTooltip from 'react-tooltip';
+// import ReactTooltip from 'react-tooltip';
 import Tooltip from '@material-ui/core/Tooltip';
-import { Badge } from '@material-ui/core';
+// import { Badge } from '@material-ui/core';
 import { animations } from 'react-animation';
-import { useSelector, useDispatch } from 'react-redux';
-import { actions } from '../../Redux/actions/staticAction';
+import { useSelector } from 'react-redux';
+// import { actions } from '../../Redux/actions/staticAction';
 
 
 function SourcesCards(props) {
 
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const [index, setIndex] = useState(-1);
-    const [userName, setuser, Name] = useState("");
+    // const [userName, setuser, Name] = useState("");
     const [clickedApplicationIndex, setClickedApplicationIndex] = useState(-1);
     const [more, setMore] = useState(false);
     const [initial, setinitial] = useState(true);
-    const [jwt, setJwt] = useState("");
+    // const [jwt, setJwt] = useState("");
 
     const leaderApps = [
         {

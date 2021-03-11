@@ -2,7 +2,7 @@
 class UserService {
 
     getUser = (userName, jwt) => {
-        debugger
+
         return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
             {
                 method: 'GET', headers: { 'authorization': jwt }

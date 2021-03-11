@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
-import Button from '@material-ui/core/Button'
 
 import './InformationTemp.css';
 import iconFive from '../img/iconFive.png'
@@ -90,16 +89,15 @@ const useStyles = () => ({
 })
 export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
-    debugger
+
     const user = ReducerData.user
     const dispatch = useDispatch()
-    const [value, setValue] = useState("Day")
     const [more, setMore] = useState(false);
 
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
-        debugger
+
         $(".filterBy").css("font-weight", "unset")
         $("#day").css("font-weight", "bold")
         let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
