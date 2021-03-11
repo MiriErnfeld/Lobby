@@ -252,7 +252,8 @@ export default withStyles(useStyles)(function Information() {
                     </div></div>‏
              <Grid container spacing={4}>
                     <Grid item xs={12} sm={3}>
-                        <Paper className="paperOne" style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
+                        <Paper className="paperOne" onClick={() => { window.location.assign(` https://contacts.dev.leader.codes/${user.username}`) }}
+                            style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Contacts {" "}
                             </div>

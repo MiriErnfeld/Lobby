@@ -112,3 +112,15 @@
   .moreBtn{
       cursor: pointer;
   }
+@media only screen and (max-width: 770px) {
+  .in-small-profil{
+      color: red;
+      max-width:100%;
+      width: 100%;
+      flex-basis: 100%;
+      margin-top: -21px;
+  }
+  .profile{
+      margin-top: 50%;
+  }
+}

@@ -240,7 +240,7 @@ function SourcesCards(props) {
         <>
             <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="col-12 d-flex justify-content-center">
-                    <div className="mt-3 align-items-center">
+                    <div className="profile in-small-profil mt-3 align-items-center">
                         <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img
                                 onClick={navigateProfil}
@@ -252,7 +252,7 @@ function SourcesCards(props) {
                     </div>
                 </div>
 
-                <div className="d-flex justify-content-center heyTxt mb-3 mt-2">
+                <div className=" in-small-profil d-flex justify-content-center heyTxt mb-3 mt-2">
                     {ReducerData.user.username ? `Hey, ${ReducerData.user.username}`
                         : "Hey"}
                 </div>
