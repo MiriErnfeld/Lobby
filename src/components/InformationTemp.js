@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
+import Button from '@material-ui/core/Button'
 
 import './InformationTemp.css';
 import iconFive from '../img/iconFive.png'
@@ -128,7 +129,6 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.setContactStatic(AllContactData.length))
         dispatch(actions.setProjectStatic(AllProjectData.length));
         dispatch(actions.setPaperStatic(AllPapersData.length));
-        dispatch(actions.ClickFilter(1));
 
     }
 
@@ -166,7 +166,6 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.setPaperStatic(AllPapersData.length));
         dispatch(actions.setContactStatic(AllContactData.length))
         dispatch(actions.setTaskStatic(AllTaskData.length))
-        dispatch(actions.ClickFilter(1));
     }
     function filterByMonth() {
         $(".filterBy").css("font-weight", "unset")
@@ -202,7 +201,6 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.setPaperStatic(AllPapersData.length));
         dispatch(actions.setContactStatic(AllContactData.length))
         dispatch(actions.setTaskStatic(AllTaskData.length))
-        dispatch(actions.ClickFilter(1));
     }
     function filterByYear() {
         $(".filterBy").css("font-weight", "unset")
@@ -343,50 +341,52 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                 </Grid>
             </div>
+            {/* <p className="btn" onClick={() => { setMore(!more) }}>+</p> */}
+            {/* <div style={{ cursor: 'pointer' }} onClick={() => { setMore(!more) }} > */}
+            {more ?
+                <>
+                <p className="btn-showTrue" onClick={() => { setMore(!more) }}>+</p>
+                    {/* <Button className="btn-showFalse" onClick={() => { setMore(!more) }}>+</Button> */}
 
-            <div style={{ cursor: 'pointer' }} onClick={() => { setMore(!more) }} >
-                {more ?
-
-                    <>
-                        <p className="moreTxt" >-</p>
-                        <div className="div-container">
-                            <Container className="p-0">
-                                <div class="container p-0">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-0 text-time-container">
-                                            <Navbar expand="md" variant="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
-                                                <p id="day" onClick={filterByDay} className="filterBy">Day</p>
-                                                <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
-                                                <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
-                                                <p id="year" onClick={filterByYear} className="filterBy">Year</p>
-                                            </Navbar>
-                                        </div>
-                                        <div class="col-md-6 circle-menu-container">
-                                            <Navbar expand="md" variant="light" className="justify-content-end is-small">
-                                                <p style={circleStyle1}>
-                                                </p>
-                                                <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
-                                                <div style={circleStyle2}>
-                                                </div>
-                                                <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
-                                                <div style={circleStyle3}>
-                                                </div>
-                                                <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
-                                                <div style={circleStyle4}>
-                                                </div>
-                                                <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
-                                            </Navbar>
-                                        </div>
+                    <div className="div-container">
+                        <Container className="p-0">
+                            <div class="container p-0">
+                                <div class="row">
+                                    <div class="col-md-6 mb-0 text-time-container">
+                                        <Navbar expand="md" variant="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                            <p id="day" onClick={filterByDay} className="filterBy">Day</p>
+                                            <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
+                                            <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
+                                            <p id="year" onClick={filterByYear} className="filterBy">Year</p>
+                                        </Navbar>
+                                    </div>
+                                    <div class="col-md-6 circle-menu-container">
+                                        <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                                            <p style={circleStyle1}>
+                                            </p>
+                                            <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                                            <div style={circleStyle2}>
+                                            </div>
+                                            <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                                            <div style={circleStyle3}>
+                                            </div>
+                                            <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                            <div style={circleStyle4}>
+                                            </div>
+                                            <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                                        </Navbar>
                                     </div>
                                 </div>
-                            </Container>
-                        </div>
-                        <Chart2 />
-                    </>
+                            </div>
+                        </Container>
+                    </div>
+                    <Chart2 />
+                </>
 
-                    : <p className="moreTxt" >+</p>
-                }
-            </div>
+                : <p className="btn-showTrue" onClick={() => { setMore(!more) }}>-</p>
+
+            }
+            {/* </div> */}
         </div>
     )
 })

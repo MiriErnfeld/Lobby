@@ -11,6 +11,12 @@
     padding-bottom: 0 !important;
     padding-top: 0 !important;
 }
+.btn-showFalse{
+content: "+";
+}
+.btn-showTrue{
+    content: "-";
+}
 .filterBy{
 
    margin-right: 10px;
