@@ -113,10 +113,8 @@
   }
   .moreBtn1{
     cursor: pointer;
-    /* in-small-profil: none */
-    margin-bottom: 0;
-
 }
+
   @media only screen and (max-width: 770px) {
       .title{
           font-size: 25px;
@@ -134,8 +132,7 @@
         text-align: center;
         font-weight: bold;
         font-family: 'Roboto',sans-serif;
-        margin-left: 5px;
-        margin-left: -33px;
+        margin-left: 2px;
         margin-bottom: 31px;
     }
   }
@@ -143,16 +140,25 @@
     .in-small-profil{
         padding-top: 120%;
       }
+      .add{
+        margin-bottom: -272px;
+    }
   }
   @media screen and (min-width: 377px) and (max-width: 700px){
 
     .in-small-profil{
         padding-top: 88%;
       }
+      .add{
+        margin-bottom: -242px;
+    }
   }
   @media screen and (min-width: 700px) and (max-width: 1024px){
 
     .in-small-profil{
         padding-top: 50%;
       }
+      .add{
+        margin-bottom: -279px;
+    }
   }

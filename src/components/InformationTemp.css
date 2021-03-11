@@ -7,6 +7,13 @@
 .paperOne:hover{
     background-color:#FFEDD2  !important;
 }
+.leadsInformation{
+    font-size: "18px";
+    font-family: "system-ui";
+    font-weight: "bold";
+    margin-bottom: "15px" ;
+    margin-left: 5px;
+}
 .navbar-brand{
     padding-bottom: 0 !important;
     padding-top: 0 !important;

@@ -246,15 +246,15 @@ export default withStyles(useStyles)(function Information() {
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
-                <div className="col-3 " style={{ fontSize: "18px", fontFamily: "system-ui", fontWeight: "bold", marginBottom: "15px" }}>
+                <div className="col-3 leadsInformation" style={{ fontSize: "18px", fontFamily: "system-ui", fontWeight: "bold", marginBottom: "15px" }}>
                     Leads Information
                 </div>
                 <div className="col-3.5" style={{ direction: "rtl" }}>
                     <div className="col-3.5" style={{ direction: "rtl" }}>
                     </div>
-                    </div>‏
-             <Grid container spacing={4}>
-                    <Grid item xs={12} sm={3}>
+                </div>‏
+             <Grid container spacing={4} style={{ marginLeft: "3px" }}>
+                    <Grid item xs={12} sm={3} >
                         <Paper className="paperOne" onClick={() => { window.location.assign(` https://contacts.dev.leader.codes/${user.username}`) }}
                             style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
@@ -386,8 +386,8 @@ export default withStyles(useStyles)(function Information() {
                     <Chart2 />
                     <div className="add-div"></div>
                 </>
-                : <><p className="moreTxt1  moreBtn1 " onClick={() => { setMore(!more) }}>More+</p>
-                 {/* {cssChangePadding(1)} */}
+                : <><p className="moreTxt1  moreBtn add" onClick={() => { setMore(!more) }}>More+</p>
+                    {/* {cssChangePadding(1)} */}
                 </>
                 // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
