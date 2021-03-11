@@ -15,7 +15,7 @@ import iconTwo from '../img/iconTwo.png';
 import iconThree from '../img/iconThree.png'
 import { actions } from '../Redux/actions/staticAction'
 import Chart2 from './Chart2'
-import SourcesCardsStyles from './'
+import SourcesCardsStyles from '../components/applictaionsCards/SourcesCardsStyles.css'
 
 
 
@@ -341,7 +341,7 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                 </Grid>
             </div>
-            <div className="div-container">
+            {/* <div className="div-container">
                 <Container className="p-0">
                     <div class="container p-0">
                         <div class="row">
@@ -372,24 +372,58 @@ export default withStyles(useStyles)(function Information() {
                         </div>
                     </div>
                 </Container>
-            </div>
-            <div className="row mt-0 d-flex moreBtn justify-content-center">
+            </div> */}
+            {/* <div className="row mt-0 d-flex moreBtn justify-content-center">
                 <div className="col d-flex justify-content-center" onClick={() => {
-                    setMore(!more)
+                    setMore(!more) */}
+            <div className="div-container" style={{ cursor: 'pointer' }} onClick={() => {
+                setMore(!more)
+            }}>
+                {more ?
+                    <>
+                        <p className="moreTxt" >Less-</p>
+                        <div className="div-container">
+                            <Container className="p-0">
+                                <div class="container p-0">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-0 text-time-container">
+                                            <Navbar expand="md" variant="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                                <p id="day" onClick={filterByDay} className="filterBy">Day</p>
+                                                <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
+                                                <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
+                                                <p id="year" onClick={filterByYear} className="filterBy">Year</p>
+                                            </Navbar>
+                                        </div>
+                                        <div class="col-md-6 circle-menu-container">
+                                            <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                                                <p style={circleStyle1}>
+                                                </p>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                                                <div style={circleStyle2}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                                                <div style={circleStyle3}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                                <div style={circleStyle4}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                                            </Navbar>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Container>
+                        </div>
 
-                }}>
-                    {more ?
-                        <>
-                            <p className="moreTxt" >Less-</p>
-                            
-                            <Chart2 />
+                        <Chart2 />
                         </>
-                        : <p className="moreTxt" >More+</p>
+                    : <p className="moreTxt" >More+</p>
 
-                    }
+                }
 
-                </div>
+                {/* </div>
 
+            </div> */}
             </div>
         </div>
     )
