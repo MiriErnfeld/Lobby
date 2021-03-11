@@ -252,12 +252,12 @@ function SourcesCards(props) {
                     </div>
                 </div>
 
-                <div className=" in-small-profil d-flex justify-content-center heyTxt mb-3 mt-2">
+                <div className=" in-small-hey d-flex justify-content-center heyTxt mb-3 mt-2">
                     {ReducerData.user.username ? `Hey, ${ReducerData.user.username}`
                         : "Hey"}
                 </div>
 
-                <div className="in-small-profil col-12 mb-4 divTitle">
+                <div className="title col-12 mb-4 divTitle">
                     <h2 className="title">
                         What do you want to do?
                 </h2>

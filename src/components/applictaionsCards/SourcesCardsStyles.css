@@ -117,6 +117,31 @@
           text-align: center;
           font-weight: bold;
           font-family: Roboto,sans-serif;
-          padding: 25px,25px,25px,25px;
+          /* padding-top: 10%; */
+      }
+      .in-small-profil{
+        padding-top: 0%;
+      }
+      .in-small-hey{
+        padding-top: 3%;
+      }
+      .moreTxt1{
+        color: #75798E;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Roboto',sans-serif;
+        margin-left: 5px;
+        margin-left: -33px;
+        margin-bottom: 31px;
+    }
+  }
+  @media only screen and (max-width: 770px) {
+    .in-small-profil{
+        padding-top: 120%;
+      }
+  }
+  @media only screen and (min-width: 770px and max-width: 991px) {
+    .in-small-profil{
+        padding-top: 120%;
       }
   }
