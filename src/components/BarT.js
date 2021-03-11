@@ -15,7 +15,6 @@ export default function ApexChart() {
     }],
     options: {
       xaxis: {
-        vAxis: {format: '0'},
         type: 'category',
         categories: [],
         labels: {
