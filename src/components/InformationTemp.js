@@ -98,6 +98,7 @@ export default withStyles(useStyles)(function Information() {
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
+        debugger
         $(".filterBy").css("font-weight", "unset")
         $("#day").css("font-weight", "bold")
         let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
@@ -342,33 +343,50 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                 </Grid>
             </div>
-            <div onClick={() => { setMore(!more) }} >
+
+            <div style={{ cursor: 'pointer' }} onClick={() => { setMore(!more) }} >
                 {more ?
-                    <div>
-                        <>
-                            <p className="moreTxt" >Less-</p>
-                            <Chart2 />
-                        </></div> : <p className="moreTxt" >More+</p>
+
+                    <>
+                        <p className="moreTxt" >-</p>
+                        <div className="div-container">
+                            <Container className="p-0">
+                                <div class="container p-0">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-0 text-time-container">
+                                            <Navbar expand="md" variant="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                                <p id="day" onClick={filterByDay} className="filterBy">Day</p>
+                                                <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
+                                                <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
+                                                <p id="year" onClick={filterByYear} className="filterBy">Year</p>
+                                            </Navbar>
+                                        </div>
+                                        <div class="col-md-6 circle-menu-container">
+                                            <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                                                <p style={circleStyle1}>
+                                                </p>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                                                <div style={circleStyle2}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                                                <div style={circleStyle3}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                                <div style={circleStyle4}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                                            </Navbar>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Container>
+                        </div>
+                        <Chart2 />
+                    </>
+
+                    : <p className="moreTxt" >+</p>
                 }
             </div>
-
-            {/* <div className="div-container" style={{ cursor: 'pointer' }} onClick={() => {
-                setMore(!more)
-            }}> */}
-            {/* {more ?
-                    <>
-                        <p className="moreTxt" >Less-</p>
-                        <div className="container-fluid container-all">
-                            <Chart2 />
-                        </div></>
-                    : <p className="moreTxt" >More+</p>
-
-                } */}
-
-            {/* </div>
-
-            </div> */}
-            {/* </div> */}
         </div>
     )
 })
