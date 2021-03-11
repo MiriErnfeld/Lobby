@@ -14,6 +14,21 @@ export default function ApexChart() {
       UpdatedData.leaderStatic.sumTasks]
     }],
     options: {
+      scales: {
+        yAxes: [{
+
+          ticks: {
+            beginAtZero: true,
+            userCallback: function (value, index, values) {
+              value = value.toString();
+							value = value.split(/(?=(?:...)*$)/);
+							value = value.join(',');
+							return value;
+              // return value.toLocaleString();   // this is all we need
+            }
+          }
+        }]
+      },
       xaxis: {
         type: 'category',
         categories: [],
@@ -23,6 +38,7 @@ export default function ApexChart() {
       },
 
       grid: {
+
         show: true,
         borderColor: '#90A4AE',
         strokeDashArray: 0,
@@ -35,11 +51,14 @@ export default function ApexChart() {
             show: false
           },
         },
+
         yaxis: {
-          decimalsInFloat: undefined,
+          // decimalsInFloat: undefined,
           lines: {
+
             show: false
           },
+          gridlines: { count: -1 },
 
         },
         row: {
@@ -62,6 +81,10 @@ export default function ApexChart() {
         },
 
       },
+      // minValue: 4,
+      // viewWindow: { min: 0 }, /*this also makes 0 = min value*/
+      // format: '0',
+
       colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
       plotOptions: {
         bar: {
@@ -81,6 +104,15 @@ export default function ApexChart() {
         display: false
       },
       tooltip: {
+       
+          callbacks: {
+            label: function (tooltipItem, data) {
+              var tooltipValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+              return parseInt(tooltipValue).toLocaleString();
+            }
+          },
+        
+      
         enabled: true,
         enabledOnSeries: undefined,
         shared: false,
@@ -123,8 +155,8 @@ export default function ApexChart() {
     },
   };
   return (
-    <div id="chart">
+    <div id="chart" >
       <ReactApexChart options={state.options} series={state.series} type="bar" height="110%" width="90%" />
-    </div>
+    </div >
   );
 }

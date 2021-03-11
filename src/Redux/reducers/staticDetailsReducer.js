@@ -25,10 +25,10 @@ const initialState = {
 
 const staticData = {
     setJwt(state, action) {
-
+        debugger
     },
     setUser(state, action) {
-
+        debugger
         state.user = (action.payload);
     },
     setSumStatic(state, action) {
@@ -53,8 +53,7 @@ const staticData = {
 
             const date1 = allData[i].startDate.split("/")
             let date2 = date1[1]
-            debugger
-            if (date2[0] !== 0) {
+            if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
             }
@@ -75,7 +74,7 @@ const staticData = {
             const date1 = allData[i].dueDate.split("/")
             let date2 = date1[1]
 
-            if (date2[0] !== 0) {
+            if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
             }
@@ -98,7 +97,6 @@ const staticData = {
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
             let date2 = date11[0]
             if (date2[0] != 0) {
-                debugger
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
             }
@@ -121,8 +119,7 @@ const staticData = {
             const date1 = allData[i].createDateAndTime
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
             let date2 = date11[0]
-            if (date2[0] !== 0) {
-                debugger
+            if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
             }
