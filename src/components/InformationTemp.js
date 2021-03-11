@@ -16,7 +16,7 @@ import iconThree from '../img/iconThree.png'
 import { actions } from '../Redux/actions/staticAction'
 import Chart2 from './Chart2'
 import '../App.css'
-import SourcesCardsStyles from '../components/applictaionsCards/SourcesCardsStyles.css'
+import '../components/applictaionsCards/SourcesCardsStyles.css'
 
 
 

@@ -204,7 +204,7 @@ function SourcesCards(props) {
                     <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xs-12 mb-5 d-flex justify-content-center">
                         <div class="box myCard"
                             style={{
-                                backgroundColor: index == card.i ? card.overColor : "#F4F2FF",
+                                backgroundColor: index === card.i ? card.overColor : "#F4F2FF",
                                 animation: !card.leader && more ? animations.fadeIn : !card.leader && console.log("animations.fadeOut")
                             }}
                             onClick={() => {
@@ -222,10 +222,10 @@ function SourcesCards(props) {
                             }}
                             hidden={card.i > 6 && initial}
                         >
-                            <img className="offset-2 mt-2 mb-0  d-flex align-items-center appIcon" src={card.img}
-                                src={index == card.i ? card.overImg : card.img} />
+                            <img className="offset-2 mt-2 mb-0  d-flex align-items-center appIcon" src={card.img} alt="img"
+                                src={index === card.i ? card.overImg : card.img} />
                             <div class="hid-box" style={{ backgroundColor: card.color }}>
-                                {card.i == index ?
+                                {card.i === index ?
                                     <p className="myCardText p-2 m-1">{card.text}</p>
                                     : <p className="myCardTitle p-2 mt-2">{card.title}</p>}
                             </div>
@@ -243,7 +243,7 @@ function SourcesCards(props) {
                     <div className="profile in-small-profil mt-3 align-items-center">
                         <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img
-                                onClick={navigateProfil}
+                                onClick={navigateProfil} alt="img 1"
                                 src={ReducerData.user.imgProfile ? ReducerData.user.imgProfile : user}
                                 onError={(e) => { e.target.onerror = null; e.target.src = user }
                                 }

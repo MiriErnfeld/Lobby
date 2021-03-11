@@ -75,7 +75,7 @@ const staticData = {
             const date1 = allData[i].dueDate.split("/")
             let date2 = date1[1]
 
-            if (date2[0] != 0) {
+            if (date2[0] !== 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
             }
