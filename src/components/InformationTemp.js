@@ -295,7 +295,9 @@ export default withStyles(useStyles)(function Information() {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sm={3}  >
-                        <Paper className="paperThree" style={{ cursor: 'pointer', padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
+                        <Paper className="paperThree"
+                            onClick={() => { window.location.assign(` https://reacthub.dev.leader.codes/${user.username}/allWorkspace`) }}
+                            style={{ cursor: 'pointer', padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Projects {" "}
                             </div>
@@ -341,13 +343,9 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                 </Grid>
             </div>
-            {/* <p className="btn" onClick={() => { setMore(!more) }}>+</p> */}
-            {/* <div style={{ cursor: 'pointer' }} onClick={() => { setMore(!more) }} > */}
             {more ?
                 <>
-                <p className="btn-showTrue" onClick={() => { setMore(!more) }}>+</p>
-                    {/* <Button className="btn-showFalse" onClick={() => { setMore(!more) }}>+</Button> */}
-
+                    <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>Less-</p>
                     <div className="div-container">
                         <Container className="p-0">
                             <div class="container p-0">
@@ -382,8 +380,7 @@ export default withStyles(useStyles)(function Information() {
                     </div>
                     <Chart2 />
                 </>
-
-                : <p className="btn-showTrue" onClick={() => { setMore(!more) }}>-</p>
+                : <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>More+</p>
 
             }
             {/* </div> */}

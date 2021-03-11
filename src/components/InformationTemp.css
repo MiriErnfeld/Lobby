@@ -11,11 +11,13 @@
     padding-bottom: 0 !important;
     padding-top: 0 !important;
 }
-.btn-showFalse{
-content: "+";
-}
-.btn-showTrue{
-    content: "-";
+.btn-show{
+    cursor: pointer;
+font-weight: bold !important;
+text-align: center;
+
+/* border:solid ; */
+font-size: 20px;
 }
 .filterBy{
 
@@ -67,7 +69,7 @@ content: "+";
 .is-small{
     font-size: 4px !important;
     /* width: 100%; */
-    margin-left:104px;
+    margin-left:88px;
 }
   .circleStyle{
         padding: 6;

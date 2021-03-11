@@ -257,7 +257,7 @@ function SourcesCards(props) {
                         : "Hey"}
                 </div>
 
-                <div className="col-12 mb-4 divTitle">
+                <div className="in-small-profil col-12 mb-4 divTitle">
                     <h2 className="title">
                         What do you want to do?
                 </h2>

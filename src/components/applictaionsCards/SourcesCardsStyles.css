@@ -38,6 +38,14 @@
     font-family: 'Roboto',sans-serif;
 }
 
+.moreTxt1{
+    color: #75798E;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Roboto',sans-serif;
+}
+
+
 .appIcon{
     width: 120px
 }
