@@ -239,6 +239,10 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
+    // function cssChangePadding(x) {
+    //     if (x===1)
+    //         $(".in-small-profil").css("padding-top", "unset")
+    // }
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -247,7 +251,8 @@ export default withStyles(useStyles)(function Information() {
                 </div>
                 <div className="col-3.5" style={{ direction: "rtl" }}>
                     <div className="col-3.5" style={{ direction: "rtl" }}>
-                    </div></div>‏
+                    </div>
+                    </div>‏
              <Grid container spacing={4}>
                     <Grid item xs={12} sm={3}>
                         <Paper className="paperOne" onClick={() => { window.location.assign(` https://contacts.dev.leader.codes/${user.username}`) }}
@@ -345,7 +350,7 @@ export default withStyles(useStyles)(function Information() {
             {more ?
                 <>
                     <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>Less-</p>
-                    
+
                     <div className="div-container">
                         <Container className="p-0">
                             <div class="container p-0">
@@ -381,14 +386,13 @@ export default withStyles(useStyles)(function Information() {
                     <Chart2 />
                     <div className="add-div"></div>
                 </>
-                : <p className="moreTxt1  moreBtn1 " onClick={() => { setMore(!more) }}>More+</p>
-                function cssChangePadding(){
-                    
-                }
+                : <><p className="moreTxt1  moreBtn1 " onClick={() => { setMore(!more) }}>More+</p>
+                 {/* {cssChangePadding(1)} */}
+                </>
                 // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
 
-          {/* $(".in-small-profil").css("padding-top", "unset") */}
+            {/* $(".in-small-profil").css("padding-top", "unset") */}
         </div>
     )
 })

@@ -113,6 +113,8 @@
   }
   .moreBtn1{
     cursor: pointer;
+    /* in-small-profil: none */
+    margin-bottom: 0;
 
 }
   @media only screen and (max-width: 770px) {
