@@ -36,6 +36,7 @@ export default function ApexChart() {
           },
         },
         yaxis: {
+          decimalsInFloat: undefined,
           lines: {
             show: false
           },
