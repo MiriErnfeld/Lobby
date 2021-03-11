@@ -246,7 +246,7 @@ export default withStyles(useStyles)(function Information() {
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
-                <div className="col-3 leadsInformation" style={{ fontSize: "18px", fontFamily: "system-ui", fontWeight: "bold", marginBottom: "15px" }}>
+                <div className="col-3 leadsInformation">
                     Leads Information
                 </div>
                 <div className="col-3.5" style={{ direction: "rtl" }}>
