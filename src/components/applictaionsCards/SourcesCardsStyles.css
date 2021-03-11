@@ -119,9 +119,7 @@
           font-family: Roboto,sans-serif;
           /* padding-top: 10%; */
       }
-      .in-small-profil{
-        padding-top: 0%;
-      }
+
       .in-small-hey{
         padding-top: 3%;
       }
@@ -135,13 +133,20 @@
         margin-bottom: 31px;
     }
   }
-  @media only screen and (max-width: 770px) {
+  @media only screen and (max-width: 376px) {
     .in-small-profil{
         padding-top: 120%;
       }
   }
-  @media only screen and (min-width: 770px and max-width: 991px) {
+  @media screen and (min-width: 377px) and (max-width: 700px){
+
     .in-small-profil{
-        padding-top: 120%;
+        padding-top: 88%;
+      }
+  }
+  @media screen and (min-width: 700px) and (max-width: 1199px){
+
+    .in-small-profil{
+        padding-top: 50%;
       }
   }

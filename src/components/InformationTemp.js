@@ -381,8 +381,9 @@ export default withStyles(useStyles)(function Information() {
                     <div className="add-div"></div>
                 </>
                 : <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>More+</p>
-
+                // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
+
             {/* </div> */}
         </div>
     )
