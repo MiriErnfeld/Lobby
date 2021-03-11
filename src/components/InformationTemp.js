@@ -350,7 +350,7 @@ export default withStyles(useStyles)(function Information() {
                             <div class="container p-0">
                                 <div class="row">
                                     <div class="col-md-6 mb-0 text-time-container">
-                                        <Navbar expand="md" variant="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                        <Navbar expand="md" variant="light" className="nav mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
                                             <p id="day" onClick={filterByDay} className="filterBy">Day</p>
                                             <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
                                             <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
@@ -378,6 +378,7 @@ export default withStyles(useStyles)(function Information() {
                         </Container>
                     </div>
                     <Chart2 />
+                    <div className="add-div"></div>
                 </>
                 : <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>More+</p>
 

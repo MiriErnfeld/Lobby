@@ -11,7 +11,6 @@ function App() {
     <>
       <Provider store={store}>
         <InformationTemp />
- 
         <SourcesCards />
       </Provider>
     </>
