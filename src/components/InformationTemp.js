@@ -387,14 +387,21 @@ export default withStyles(useStyles)(function Information() {
                     <Chart2 />
                     <div className="add-div"></div>
                 </>
-                : <><p className="moreTxt1  moreBtn add" onClick={changeMore}  >More+</p>
-                    {/* {cssChangePadding(1)} */}
+                :
+                <>
+                    {/* {$(".in-small-profil").css("padding-top", "unset")} */}
+                    {/* < p className="moreTxt1 moreBtn" onClick={changeMore} > More +</p> */}
                 </>
+
+
+
                 // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
 
             {/* $(".in-small-profil").css("padding-top", "unset") */}
-        </div>
+        </div >
     )
 })
+
+$(".in-small-profil").css("padding-top", "0")
 
