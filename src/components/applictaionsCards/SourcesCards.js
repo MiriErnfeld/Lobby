@@ -194,7 +194,7 @@ function SourcesCards(props) {
     const navigateProfil = () => {
         let url = window.location;
         let userName = (url.pathname.split('/')[1]);
-        window.location.assign(`https://lobby.dev.leader.codes/${ReducerData.user.username}/profile`);
+        window.open(`https://lobby.dev.leader.codes/${ReducerData.user.username}/profile`);
     }
 
     const showApps = (apps) => {
@@ -209,7 +209,7 @@ function SourcesCards(props) {
                             }}
                             onClick={() => {
                                 // if (card.isActiveApp)
-                                window.location.assign(card.url)
+                                window.open(card.url)
                                 // else
                                 //     setClickedApplicationIndex(card.i)
                             }}

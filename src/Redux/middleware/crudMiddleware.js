@@ -17,9 +17,7 @@ export const getCookie = (c_name) => {
 };
 
 //I want to get the kind of the jwt according to the url
-
-let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI4dEZnM08xQW5mVmRkamdEWVFKaWkzcXNFM2gxIiwiZW1haWwiOiJ0c0BnbWFpbC5jb20iLCJpYXQiOjE2MTUzNjU2ODh9.znsJQnFsJVc0ehuT-Rk57gnyDuwtOoKxfdz8Kfo5iw8";
-// let jwt = ""
+let jwt = ""
 
 const getJwt = (url) => {
   url.href.includes('dev') ?
@@ -48,9 +46,9 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         method: 'GET', headers: { 'authorization': jwt }
       })
       .then((res) => {
-        // if (res.status === 401) {
-        //   window.location.assign(`https://dev.leader.codes/login`);
-        // }
+        if (res.status === 401) {
+          window.location.assign(`https://dev.leader.codes/login`);
+        }
         return res.json();
       })
       .then((result) => {

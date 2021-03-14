@@ -25,6 +25,7 @@ const initialState = {
 
 const staticData = {
     setJwt(state, action) {
+        state.jwt = (action.payload);
     },
     setUser(state, action) {
         state.user = (action.payload);
