@@ -389,15 +389,15 @@ export default withStyles(useStyles)(function Information() {
                     <div className="add-div"></div>
                 </>
                 : <>
-                    {/* <div onClick={changeMore} > */}
+
                     <div className="moreTxt1 moreBtn add" onClick={changeMore}  >More+</div>
                     {/* {cssChangePadding(1)} */}
-
-                {/* // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset") */}
+                </>
+                // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
 
-                    {/* $(".in-small-profil").css("padding-top", "unset") */}
-                {/* </div> */}
+            {/* $(".in-small-profil").css("padding-top", "unset") */}
+        </div>
     )
 })
 
