@@ -110,9 +110,15 @@
 
   .moreBtn{
       cursor: pointer;
+      border: solid 1px #ccc;
   }
   .moreBtn1{
     cursor: pointer;
+}
+.add{
+  border: '1px solid black' ;
+  margin-left: "342px";
+
 }
 
   @media only screen and (max-width: 770px) {

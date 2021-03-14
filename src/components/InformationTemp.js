@@ -112,7 +112,8 @@ export default withStyles(useStyles)(function Information() {
             return (detaContact === currentDate)
         })
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.dueDate.split("/")
+
+            const dateProject = AllProject.startDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (dateFormater === currentDate)
         })
@@ -135,7 +136,7 @@ export default withStyles(useStyles)(function Information() {
         $("#week").css("font-weight", "bold")
 
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.dueDate.split("/")
+            const dateProject = AllProject.startDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeWeek))
         })
@@ -170,7 +171,7 @@ export default withStyles(useStyles)(function Information() {
         $("#month").css("font-weight", "bold")
 
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.dueDate.split("/")
+            const dateProject = AllProject.startDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeMonth))
         })
@@ -205,7 +206,7 @@ export default withStyles(useStyles)(function Information() {
         $("#year").css("font-weight", "bold")
 
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.dueDate.split("/")
+            const dateProject = AllProject.startDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
@@ -239,10 +240,10 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
-    // function cssChangePadding(x) {
-    //     if (x===1)
-    //         $(".in-small-profil").css("padding-top", "unset")
-    // }
+    function changeMore() {
+        // debugger
+        setMore(!more)
+    }
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -349,7 +350,7 @@ export default withStyles(useStyles)(function Information() {
             </div>
             {more ?
                 <>
-                    <p className="moreTxt1  moreBtn " onClick={() => { setMore(!more) }}>Less-</p>
+                    <p className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p>
 
                     <div className="div-container">
                         <Container className="p-0">
@@ -386,7 +387,7 @@ export default withStyles(useStyles)(function Information() {
                     <Chart2 />
                     <div className="add-div"></div>
                 </>
-                : <><p className="moreTxt1  moreBtn add" onClick={() => { setMore(!more)  }}>More+</p>
+                : <><p className="moreTxt1  moreBtn add" onClick={changeMore}  >More+</p>
                     {/* {cssChangePadding(1)} */}
                 </>
                 // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")

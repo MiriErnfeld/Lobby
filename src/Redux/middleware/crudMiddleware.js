@@ -74,7 +74,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 
             if (projectData && projectData.length !== 0) {
               let sumProject = data.countProjectsForUser
-              debugger
+
               dispatch(actions.setProjectStatic(sumProject));
               dispatch(actions.setProjectData(projectData));
               dispatch(actions.setProjectChart(projectData));
@@ -101,7 +101,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
             let taskData = data.userTasksList
             //only sumTask
             if (taskData && taskData.length !== 0) {
-              debugger
+
               let sumTask = (data.countTasksForUser)
               dispatch(actions.setTaskStatic(sumTask));
               dispatch(actions.setTaskData(taskData));
@@ -126,7 +126,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 
               let sumPapers = (data.quotes.length)
               let d = data.quotes
-              debugger
+
               dispatch(actions.setPaperStatic(sumPapers));
               dispatch(actions.setPaperData(d));
               dispatch(actions.setPaperChart(d));

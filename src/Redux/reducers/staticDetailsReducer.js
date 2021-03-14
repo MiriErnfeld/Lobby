@@ -25,10 +25,8 @@ const initialState = {
 
 const staticData = {
     setJwt(state, action) {
-        debugger
     },
     setUser(state, action) {
-        debugger
         state.user = (action.payload);
     },
     setSumStatic(state, action) {
