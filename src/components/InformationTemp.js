@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
+import Button from '@material-ui/core/Button';
 
 import './InformationTemp.css';
 import iconFive from '../img/iconFive.png'
@@ -130,8 +131,6 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.setPaperStatic(AllPapersData.length));
 
     }
-
-
 
     function filterByWeek() {
         $(".filterBy").css("font-weight", "unset")
@@ -344,8 +343,6 @@ export default withStyles(useStyles)(function Information() {
                                     </Avatar>
                                 </div>
                             </div>
-
-                            {/* {$(".in-small-profil").css("padding-top", "unset")} */}
                             <div className="row" style={{ margin: '1px' }}>
                             </div>
                         </Paper>
@@ -361,7 +358,7 @@ export default withStyles(useStyles)(function Information() {
                             <div class="container p-0">
                                 <div class="row">
                                     <div class="col-md-6 mb-0 text-time-container">
-                                        <Navbar expand="md" variant="light" className="nav mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                        <Navbar expand="md" variant="light" className="nav mb-0 d-flex navmy" style={{ justifyContent: "flex-start" }}>
                                             <p id="day" onClick={filterByDay} className="filterBy">Day</p>
                                             <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
                                             <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
@@ -389,35 +386,18 @@ export default withStyles(useStyles)(function Information() {
                         </Container>
                     </div>
                     <Chart2 />
-
-
                     <div className="add-div"></div>
                 </>
-                :
-                <div onClick={() => {
-                    $("#in-small-profil").css("padding-top", "unset")
+                : <>
+                    {/* <div onClick={changeMore} > */}
+                    <div className="moreTxt1 moreBtn add" onClick={changeMore}  >More+</div>
+                    {/* {cssChangePadding(1)} */}
 
-                    // { $("#week").css("font-weight", "bold") }
-                    setMore(!more)
-                }}>
-                    < p className="moreTxt1 moreBtn" onClick={changeMore} > More +</p>
-
-                </div>
-                // {
-
-                // // }
-                //     {/* < p className="moreTxt1 moreBtn" onClick={changeMore} > More +</p> */}
-                // // </>
-
-
-
-                // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
+                {/* // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset") */}
             }
 
-            {/* $(".in-small-profil").css("padding-top", "unset") */}
-
-
-        </div >
+                    {/* $(".in-small-profil").css("padding-top", "unset") */}
+                {/* </div> */}
     )
 })
 

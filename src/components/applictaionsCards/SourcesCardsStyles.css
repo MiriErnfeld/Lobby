@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .warpDiv{
@@ -110,15 +111,10 @@
 
   .moreBtn{
       cursor: pointer;
-      border: solid 1px #ccc;
   }
   .moreBtn1{
     cursor: pointer;
-}
-.add{
-  border: '1px solid black' ;
-  margin-left: "342px";
-
+    border: 1px solid ;
 }
 
   @media only screen and (max-width: 770px) {
@@ -143,33 +139,31 @@
     }
   }
   @media only screen and (max-width: 376px) {
-    #in-small-profil{
+    .in-small-profil{
         padding-top: 120%;
       }
       .add{
         margin-bottom: -272px;
     }
   }
-  @media screen and (min-width: 377px) and (max-width: 600px){
+  @media screen and (min-width: 377px) and (max-width: 700px){
 
-    #in-small-profil{
+    .in-small-profil{
         padding-top: 88%;
       }
-      /* .add{
+      .add{
         margin-bottom: -242px;
-    } */
+    }
   }
-  @media screen and (min-width: 600px) and (max-width: 700px){
-
-    #in-small-profil{
-        padding-top: 50%;
-      }}
   @media screen and (min-width: 700px) and (max-width: 1024px){
 
-    #in-small-profil{
+    .in-small-profil{
         padding-top: 50%;
       }
       .add{
         margin-bottom: -279px;
+    }
+    .navmy{
+margin-left: 165px;
     }
   }
