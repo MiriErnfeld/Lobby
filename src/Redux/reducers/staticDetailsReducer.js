@@ -71,7 +71,7 @@ const staticData = {
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
 
-            const date1 = allData[i].dueDate.split("/")
+            const date1 = allData[i].startDate.split("/")
             let date2 = date1[1]
 
             if (date2[0] != 0) {
