@@ -240,7 +240,7 @@ function SourcesCards(props) {
         <>
             <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="col-12 d-flex justify-content-center">
-                    <div className="profile in-small-profil mt-3 align-items-center">
+                    <div id="in-small-profil" className="profile in-small-profil mt-3 align-items-center">
                         <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img
                                 onClick={navigateProfil} alt="img 1"

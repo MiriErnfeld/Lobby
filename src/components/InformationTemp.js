@@ -131,6 +131,8 @@ export default withStyles(useStyles)(function Information() {
 
     }
 
+
+
     function filterByWeek() {
         $(".filterBy").css("font-weight", "unset")
         $("#week").css("font-weight", "bold")
@@ -342,6 +344,8 @@ export default withStyles(useStyles)(function Information() {
                                     </Avatar>
                                 </div>
                             </div>
+
+                            {/* {$(".in-small-profil").css("padding-top", "unset")} */}
                             <div className="row" style={{ margin: '1px' }}>
                             </div>
                         </Paper>
@@ -385,13 +389,25 @@ export default withStyles(useStyles)(function Information() {
                         </Container>
                     </div>
                     <Chart2 />
+
+
                     <div className="add-div"></div>
                 </>
                 :
-                <>
-                    {/* {$(".in-small-profil").css("padding-top", "unset")} */}
-                    {/* < p className="moreTxt1 moreBtn" onClick={changeMore} > More +</p> */}
-                </>
+                <div onClick={() => {
+                    $("#in-small-profil").css("padding-top", "unset")
+
+                    // { $("#week").css("font-weight", "bold") }
+                    setMore(!more)
+                }}>
+                    < p className="moreTxt1 moreBtn" onClick={changeMore} > More +</p>
+
+                </div>
+                // {
+
+                // // }
+                //     {/* < p className="moreTxt1 moreBtn" onClick={changeMore} > More +</p> */}
+                // // </>
 
 
 
@@ -399,9 +415,10 @@ export default withStyles(useStyles)(function Information() {
             }
 
             {/* $(".in-small-profil").css("padding-top", "unset") */}
+
+
         </div >
     )
 })
 
-$(".in-small-profil").css("padding-top", "0")
 
