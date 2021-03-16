@@ -255,7 +255,7 @@ export default withStyles(useStyles)(function Information() {
                     <div className="col-3.5" style={{ direction: "rtl" }}>
                     </div>
                 </div>‏
-             <Grid container spacing={4} style={{ marginLeft: "3px" }}>
+             <Grid container spacing={4} style={{ marginLeft: "3px", marginBottom: "2px" }}>
                     <Grid item xs={12} sm={3} >
                         <Paper className="paperOne" onClick={() => { window.location.assign(` https://contacts.dev.leader.codes/${user.username}`) }}
                             style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
@@ -386,7 +386,7 @@ export default withStyles(useStyles)(function Information() {
                         </Container>
                     </div>
                     <Chart2 />
-                   
+
                 </>
                 : " "}
 
@@ -401,7 +401,9 @@ export default withStyles(useStyles)(function Information() {
                 }}>
                     {more ?
                         <p className="moreTxt moreBtn lessbtn"  >Less-</p>
-                        : <p className="moreTxt moreBtn" >More+</p>
+                        :
+                        <p className="moreTxt moreBtn" >More+</p>
+
                     }
                 </div>
             </div>
