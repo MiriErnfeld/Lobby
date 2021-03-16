@@ -351,7 +351,7 @@ export default withStyles(useStyles)(function Information() {
             </div>
             {more ?
                 <>
-                    <p className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p>
+                    {/* <p className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p> */}
 
                     <div className="div-container">
                         <Container className="p-0">
@@ -386,15 +386,25 @@ export default withStyles(useStyles)(function Information() {
                         </Container>
                     </div>
                     <Chart2 />
-                    <div className="add-div"></div>
+                   
                 </>
-                : <>
+                : " "}
 
-                    <div className="moreTxt1 moreBtn add" onClick={changeMore}  >More+</div>
-                    {/* {cssChangePadding(1)} */}
-                </>
-                // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
-            }
+            {/* <div className="moreTxt1 moreBtn add" onClick={changeMore}  >More+</div> */}
+            {/* {cssChangePadding(1)} */}
+
+            {/* // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset") */}
+
+            <div className="row mt-0 d-flex moreBtn justify-content-center">
+                <div className="col d-flex justify-content-center" onClick={() => {
+                    setMore(!more)
+                }}>
+                    {more ?
+                        <p className="moreTxt moreBtn lessbtn"  >Less-</p>
+                        : <p className="moreTxt moreBtn" >More+</p>
+                    }
+                </div>
+            </div>
 
             {/* $(".in-small-profil").css("padding-top", "unset") */}
         </div>

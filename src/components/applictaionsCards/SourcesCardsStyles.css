@@ -108,6 +108,9 @@
     line-height: normal;
     text-align: center;
   }
+  .lessbtn{
+    margin-top: -290px;
+  }
 
   .moreBtn{
       cursor: pointer;
