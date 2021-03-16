@@ -108,10 +108,6 @@
     line-height: normal;
     text-align: center;
   }
-  .lessbtn{
-    font-weight: bold;
-    margin-top: 279px;
-  }
 
   .moreBtn{
       cursor: pointer;
@@ -157,10 +153,6 @@
       }
       .add{
         margin-bottom: -242px;
-    }
-    .lessbtn{
-      font-weight: bold;
-      /* margin-top: -310px; */
     }
   }
   @media screen and (min-width: 700px) and (max-width: 1024px){

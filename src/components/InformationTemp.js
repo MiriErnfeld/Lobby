@@ -255,7 +255,7 @@ export default withStyles(useStyles)(function Information() {
                     <div className="col-3.5" style={{ direction: "rtl" }}>
                     </div>
                 </div>‏
-             <Grid container spacing={4} style={{ marginLeft: "3px", marginBottom: "2px" }}>
+             <Grid container spacing={4} style={{ marginLeft: "3px" }}>
                     <Grid item xs={12} sm={3} >
                         <Paper className="paperOne" onClick={() => { window.location.assign(` https://contacts.dev.leader.codes/${user.username}`) }}
                             style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
@@ -351,7 +351,7 @@ export default withStyles(useStyles)(function Information() {
             </div>
             {more ?
                 <>
-                    {/* <p className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p> */}
+                    <p className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p>
 
                     <div className="div-container">
                         <Container className="p-0">
@@ -386,27 +386,15 @@ export default withStyles(useStyles)(function Information() {
                         </Container>
                     </div>
                     <Chart2 />
-
+                    <div className="add-div"></div>
                 </>
-                : " "}
+                : <>
 
-            {/* <div className="moreTxt1 moreBtn add" onClick={changeMore}  >More+</div> */}
-            {/* {cssChangePadding(1)} */}
-
-            {/* // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset") */}
-
-            <div className="row mt-0 d-flex moreBtn justify-content-center">
-                <div className="col d-flex justify-content-center" onClick={() => {
-                    setMore(!more)
-                }}>
-                    {more ?
-                        <p className="moreTxt moreBtn lessbtn"  >Less-</p>
-                        :
-                        <p className="moreTxt moreBtn" >More+</p>
-
-                    }
-                </div>
-            </div>
+                    <div className="moreTxt1 moreBtn add" onClick={changeMore}  >More+</div>
+                    {/* {cssChangePadding(1)} */}
+                </>
+                // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
+            }
 
             {/* $(".in-small-profil").css("padding-top", "unset") */}
         </div>
