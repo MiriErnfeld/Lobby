@@ -60,18 +60,18 @@ function SourcesCards(props) {
             url: `https://box.dev.leader.codes/${ReducerData.user.username}`,
             leader: true
         },
-        {
-            i: 1,
-            title: "Funnel",
-            text: "Lead Capture System With Marketing Campaigns And Landing Pages",
-            isActiveApp: true,
-            color: "#44D7B6",
-            overColor: "#EFFFFC",
-            overImg: hoverFunnel,
-            img: funnel,
-            url: `https://dev.vloger.codes/admin/${ReducerData.user.username}?jwt=${ReducerData.jwt}`,
-            leader: true
-        },
+        // {
+        //     i: 1,
+        //     title: "Funnel",
+        //     text: "Lead Capture System With Marketing Campaigns And Landing Pages",
+        //     isActiveApp: true,
+        //     color: "#44D7B6",
+        //     overColor: "#EFFFFC",
+        //     overImg: hoverFunnel,
+        //     img: funnel,
+        //     url: `https://dev.vloger.codes/admin/${ReducerData.user.username}`,
+        //     leader: true
+        // },
         {
             i: 2,
             title: "Leader Hub",
@@ -84,18 +84,18 @@ function SourcesCards(props) {
             url: `https://reacthub.dev.leader.codes/${ReducerData.user.username}`,
             leader: true
         },
-        {
-            i: 3,
-            title: "Leader Clocks",
-            text: "Blog Writing Platform With Integrated Keywords And Lead Conversation System",
-            isActiveApp: false,
-            color: "#FF808B",
-            overColor: "#FFF5F6",
-            overImg: hoverClocks,
-            img: clocks,
-            url: `https://chat.dev.leader.codes/${ReducerData.user.username}`,
-            leader: true
-        },
+        // {
+        //     i: 3,
+        //     title: "Leader Clocks",
+        //     text: "Blog Writing Platform With Integrated Keywords And Lead Conversation System",
+        //     isActiveApp: false,
+        //     color: "#FF808B",
+        //     overColor: "#FFF5F6",
+        //     overImg: hoverClocks,
+        //     img: clocks,
+        //     url: `https://chat.dev.leader.codes/${ReducerData.user.username}`,
+        //     leader: true
+        // },
         {
             i: 4,
             title: "Leader Time",
@@ -209,6 +209,7 @@ function SourcesCards(props) {
                             }}
                             onClick={() => {
                                 // if (card.isActiveApp)
+                                // console.log(ReducerData.jwt)
                                 window.open(card.url)
                                 // else
                                 //     setClickedApplicationIndex(card.i)
@@ -240,9 +241,9 @@ function SourcesCards(props) {
         <>
             <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="col-12 d-flex justify-content-center">
-                    <div className="profile in-small-profil mt-3 align-items-center">
+                    <div className="imgProfil in-small-profil mt-3 align-items-center">
                         <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
-                            <img
+                            <img className="imgProfil imgProfilinsmall"
                                 onClick={navigateProfil} alt="img 1"
                                 src={ReducerData.user.imgProfile ? ReducerData.user.imgProfile : user}
                                 onError={(e) => { e.target.onerror = null; e.target.src = user }
@@ -264,7 +265,7 @@ function SourcesCards(props) {
                 </div>‏
 
                 {showApps(leaderApps)}
-                {more && showApps(moreApps)}
+                {/* {more && showApps(moreApps)}
                 <div className="row mt-0 d-flex moreBtn justify-content-center">
                     <div className="col d-flex justify-content-center" onClick={() => {
                         setMore(!more)
@@ -275,7 +276,7 @@ function SourcesCards(props) {
                             : <p className="moreTxt" >More+</p>
                         }
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
 
@@ -284,5 +285,4 @@ function SourcesCards(props) {
 
 
 export default SourcesCards;
-
 

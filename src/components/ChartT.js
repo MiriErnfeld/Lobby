@@ -3,6 +3,8 @@ import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 import moment from 'moment';
 
+import './chart.css'
+
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
   let currentYear = moment().format("YYYY")
@@ -83,8 +85,8 @@ export default function ApexChart() {
     },
   };
   return (
-    <div id="chart">
-      <ReactApexChart options={state.options} series={state.series} type="line" height="110%" width="90%" />
+    <div id="chart" className="return-chart">
+      <ReactApexChart options={state.options} series={state.series} type="line" height="110%" width="88%" />
     </div>
   );
 

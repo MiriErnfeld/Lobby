@@ -1,3 +1,4 @@
+
 /* .MuiGrid-spacing-xs-3 > .MuiGrid-item {
     padding: 4px !important;
 } */      
@@ -30,6 +31,7 @@ font-size: 20px;
    margin-bottom: 0 !important;
    border-right: 1px solid #50565c80;
    padding-right: 10px;
+ 
 }
 .filter{
 
@@ -74,7 +76,7 @@ font-size: 20px;
 .is-small{
     font-size: 4px !important;
     /* width: 100%; */
-    margin-left:88px;
+    margin-left:166px;
 }
   .circleStyle{
         padding: 6;
@@ -96,7 +98,7 @@ color: #000000 !important;
 }
 .nav{
     flex-wrap: nowrap;
-    margin-left: 9px;
+    margin-left: 16px;
 }
 .navbar{
     flex-wrap: nowrap;
@@ -113,6 +115,7 @@ color: #000000 !important;
     }
     .circle-menu-container, .text-time-container{
         max-width: 100%;
+        /* margin-right: 23px; */
     }
     .myClass1{
         margin-right: 0 !important;
@@ -130,6 +133,7 @@ color: #000000 !important;
         font-size: 2px;
         font-display:unset;
         zoom:0.8;
+        
     }
     
     .is-small1{

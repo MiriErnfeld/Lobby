@@ -13,6 +13,7 @@
     height: 70px;
     flex-shrink: 0;
     object-fit: cover;
+  
 }
 
 .myCard{
@@ -123,11 +124,13 @@
           text-align: center;
           font-weight: bold;
           font-family: Roboto,sans-serif;
+          /* margin-top: 20px; */
           /* padding-top: 10%; */
       }
 
       .in-small-hey{
-        padding-top: 3%;
+        padding-top: 180px;
+        margin-top: 71px !important;
       }
       .moreTxt1{
         color: #75798E;
@@ -139,11 +142,17 @@
     }
   }
   @media only screen and (max-width: 376px) {
-    .in-small-profil{
+    /* .in-small-profil{
         padding-top: 120%;
-      }
+      } */
       .add{
-        margin-bottom: -272px;
+        /* margin-bottom: -272px; */
+    }
+    .imgProfil{
+      margin-top: 230px;
+    }
+    .imgProfilinsmall{
+
     }
   }
   @media screen and (min-width: 377px) and (max-width: 700px){
@@ -154,6 +163,9 @@
       .add{
         margin-bottom: -242px;
     }
+    .imgProfil{
+      margin-top: 179px;
+    }
   }
   @media screen and (min-width: 700px) and (max-width: 1024px){
 
@@ -161,9 +173,14 @@
         padding-top: 50%;
       }
       .add{
-        margin-bottom: -279px;
+        /* margin-bottom: -279px; */
     }
     .navmy{
 margin-left: 165px;
-    }
+    
+}
   }
+ /* @media (min-width: 992px){
+.container{
+    max-width: 1300px !important;
+    margin-right: -5px !important;}} */

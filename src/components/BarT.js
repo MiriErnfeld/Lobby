@@ -21,9 +21,9 @@ export default function ApexChart() {
             beginAtZero: true,
             userCallback: function (value, index, values) {
               value = value.toString();
-							value = value.split(/(?=(?:...)*$)/);
-							value = value.join(',');
-							return value;
+              value = value.split(/(?=(?:...)*$)/);
+              value = value.join(',');
+              return value;
               // return value.toLocaleString();   // this is all we need
             }
           }
@@ -104,15 +104,15 @@ export default function ApexChart() {
         display: false
       },
       tooltip: {
-       
-          callbacks: {
-            label: function (tooltipItem, data) {
-              var tooltipValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-              return parseInt(tooltipValue).toLocaleString();
-            }
-          },
-        
-      
+
+        callbacks: {
+          label: function (tooltipItem, data) {
+            var tooltipValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            return parseInt(tooltipValue).toLocaleString();
+          }
+        },
+
+
         enabled: true,
         enabledOnSeries: undefined,
         shared: false,
@@ -156,7 +156,7 @@ export default function ApexChart() {
   };
   return (
     <div id="chart" >
-      <ReactApexChart options={state.options} series={state.series} type="bar" height="110%" width="90%" />
+      <ReactApexChart options={state.options} series={state.series} type="bar" height="110%" width="86%" />
     </div >
   );
 }

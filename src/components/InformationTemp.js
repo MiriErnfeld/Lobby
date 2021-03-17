@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux'
@@ -7,7 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
-import Button from '@material-ui/core/Button';
+import styled from "styled-components";
+
 
 import './InformationTemp.css';
 import iconFive from '../img/iconFive.png'
@@ -241,10 +243,7 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
-    function changeMore() {
-        // debugger
-        setMore(!more)
-    }
+
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -349,9 +348,12 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                 </Grid>
             </div>
+            {/* {more ? <>{$(".in-small-profil").css("padding-top", "1px") &&
+                $(".paperThree").css("background-color", "#FFEDD2")}
+            </> : " "} */}
             {more ?
                 <>
-                    <p className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p>
+                    <p type="button" className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p>
 
                     <div className="div-container">
                         <Container className="p-0">
@@ -386,18 +388,21 @@ export default withStyles(useStyles)(function Information() {
                         </Container>
                     </div>
                     <Chart2 />
-                    <div className="add-div"></div>
+                    {/* <div className="add-div"></div> */}
                 </>
-                : <>
+                :
+                <>
+                    {
+                        <p className="moreTxt1 moreBtn add " onClick={() => { setMore(!more) }}>More+</p>}
+                </>
+                // < type="button" className="moreTxt1  moreBtn"     onClick={() => { setMore(!more) }}>Less-</>
 
-                    <div className="moreTxt1 moreBtn add" onClick={changeMore}  >More+</div>
-                    {/* {cssChangePadding(1)} */}
-                </>
+
                 // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
 
             {/* $(".in-small-profil").css("padding-top", "unset") */}
-        </div>
+        </div >
     )
 })
 

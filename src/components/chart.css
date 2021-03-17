@@ -1,3 +1,4 @@
+
 .marginClass {
     width: 100%;
     margin-right: 10px;
@@ -29,6 +30,10 @@
     width: 82%;
     margin-left: 9%;
 }
+.container-chart{
+    margin-right: -8px;
+    max-width:1310px;
+}
 
 @media only screen and (max-width: 770px) {
     .myClass {
@@ -38,7 +43,9 @@
         margin-top: -50px!important;
         margin-left: 2px !important;
     }
-
+    .container-chart{
+        margin-right: 30px;
+    }
     .marginClass{
         margin-bottom:20px;
         margin-right: 10px;
@@ -52,6 +59,10 @@
         margin-left: 10px;
         margin-top: 40px;
         height:90%
+    }
+    .return-chart{
+        /* margin-right:1000px; */
+        margin-right:4px ;
     }
     .container-chart{
         max-width: 600px;
