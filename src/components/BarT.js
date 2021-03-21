@@ -1,3 +1,4 @@
+
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 
@@ -5,30 +6,18 @@ import './chart.css'
 
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
+
   const state = {
     series: [{
       name: " ",
+
       data: [UpdatedData.leaderStatic.sumContacts,
       UpdatedData.leaderStatic.sumPapers,
       UpdatedData.leaderStatic.sumProjects,
-      UpdatedData.leaderStatic.sumTasks]
+      UpdatedData.leaderStatic.sumTasks],
     }],
     options: {
-      scales: {
-        yAxes: [{
 
-          ticks: {
-            beginAtZero: true,
-            userCallback: function (value, index, values) {
-              value = value.toString();
-              value = value.split(/(?=(?:...)*$)/);
-              value = value.join(',');
-              return value;
-              // return value.toLocaleString();   // this is all we need
-            }
-          }
-        }]
-      },
       xaxis: {
         type: 'category',
         categories: [],
@@ -93,7 +82,7 @@ export default function ApexChart() {
           distributed: true,
         }
       },
-      labels: ['contacts', 'papers', 'projects ', 'tasks'],
+      labels: ['contacts', 'papers', 'Deals', 'tasks'],
       dataLabels: {
         show: false,
         enabled: false
@@ -154,6 +143,7 @@ export default function ApexChart() {
       }
     },
   };
+
   return (
     <div id="chart" >
       <ReactApexChart options={state.options} series={state.series} type="bar" height="110%" width="86%" />

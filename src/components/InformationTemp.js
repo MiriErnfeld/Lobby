@@ -92,158 +92,204 @@ const useStyles = () => ({
 })
 export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
-
     const user = ReducerData.user
     const dispatch = useDispatch()
     const [more, setMore] = useState(false);
+    const [full, setfull] = useState(true);
 
+    // function fullData() {
+    //       
+    //     if (ReducerData.sumTasks &&
+    //         ReducerData.sumContacts &&
+    //         ReducerData.sumPapers &&
+    //         ReducerData.sumProjects)
+    //         setfull(false)
+    //     console.log(full)
+    // }
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
 
         $(".filterBy").css("font-weight", "unset")
         $("#day").css("font-weight", "bold")
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (dateFormater === currentDate)
-        })
+        if (ReducerData.AllTask != null) {
+            let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
+                const dateTask = AllTask.startDate.split("/")
+                const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+                return (dateFormater === currentDate)
+            })
+            dispatch(actions.setTaskStatic(AllTaskData.length))
 
-        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
-            const dateContact1 = (AllContact.createDateAndTime)
-            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
-            return (detaContact === currentDate)
-        })
-        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
+        }
+        if (ReducerData.AllContact != null) {
 
-            const dateProject = AllProject.startDate.split("/")
-            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
-            return (dateFormater === currentDate)
-        })
+            let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
 
-        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+                const dateContact1 = (AllContact.createDateAndTime)
+                let detaContact = moment(dateContact1).format("MM/DD/YYYY");
+                return (detaContact === currentDate)
+            })
+            dispatch(actions.setContactStatic(AllContactData.length))
+        }
+        if (ReducerData.AllProject != null) {
 
-            const datePaper1 = AllPapers.createdDate
-            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            return (detaPaper === currentDate)
-        })
-        dispatch(actions.setTaskStatic(AllTaskData.length))
-        dispatch(actions.setContactStatic(AllContactData.length))
-        dispatch(actions.setProjectStatic(AllProjectData.length));
-        dispatch(actions.setPaperStatic(AllPapersData.length));
+            let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
+
+                const dateProject1 = (AllProject.closeDate)
+                let dateProject = moment(dateProject1).format("MM/DD/YYYY");
+                return (dateProject === currentDate)
+                // const dateProject = AllProject.startDate.split("/")
+                // const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+                // return (dateFormater === currentDate)
+            })
+            dispatch(actions.setProjectStatic(AllProjectData.length));
+
+        }
+        if (ReducerData.AllPapers != null) {
+            let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+
+                const datePaper1 = AllPapers.createdDate
+                let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+                return (detaPaper === currentDate)
+            })
+            dispatch(actions.setPaperStatic(AllPapersData.length));
+
+        }
 
     }
-
     function filterByWeek() {
         $(".filterBy").css("font-weight", "unset")
         $("#week").css("font-weight", "bold")
+        if (ReducerData.AllProject != null) {
+            let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
+                const dateProject1 = (AllProject.closeDate)
+                let dateProject = moment(dateProject1).format("MM/DD/YYYY");
+                return (new Date(dateProject) >= new Date(dateBeforeWeek))
 
-        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.startDate.split("/")
-            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-        })
-        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+                // const dateProject = AllProject.startDate.split("/")
+                // const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+                // return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+            })
+            dispatch(actions.setProjectStatic(AllProjectData.length));
 
-            const datePaper1 = AllPapers.createdDate
-            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-            return (new Date(detaPaper) >= new Date(dateBeforeWeek))
+        }
+        if (ReducerData.AllPapers != null) {
+            let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
 
-        })
+                const datePaper1 = AllPapers.createdDate
+                let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+                return (new Date(detaPaper) >= new Date(dateBeforeWeek))
+            })
+            dispatch(actions.setPaperStatic(AllPapersData.length));
 
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+        }
+        if (ReducerData.AllTask != null) {
+            let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
+                const dateTask = AllTask.startDate.split("/")
+                const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+                return (new Date(dateFormater) >= new Date(dateBeforeWeek))
 
-        })
-        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
-            const dateContact1 = (AllContact.createDateAndTime)
-            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
-            return (new Date(detaContact) >= new Date(dateBeforeWeek))
-
-        })
-        dispatch(actions.setProjectStatic(AllProjectData.length));
-        dispatch(actions.setPaperStatic(AllPapersData.length));
-        dispatch(actions.setContactStatic(AllContactData.length))
-        dispatch(actions.setTaskStatic(AllTaskData.length))
+            })
+            dispatch(actions.setTaskStatic(AllTaskData.length))
+        }
+        if (ReducerData.AllContact != null) {
+            let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
+                const dateContact1 = (AllContact.createDateAndTime)
+                let detaContact = moment(dateContact1).format("MM/DD/YYYY");
+                return (new Date(detaContact) >= new Date(dateBeforeWeek))
+            })
+            dispatch(actions.setContactStatic(AllContactData.length))
+        }
     }
     function filterByMonth() {
         $(".filterBy").css("font-weight", "unset")
         $("#month").css("font-weight", "bold")
+        if (ReducerData.AllProject != null) {
+            let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
+                const dateProject1 = (AllProject.closeDate)
+                let dateProject = moment(dateProject1).format("MM/DD/YYYY");
+                return (new Date(dateProject) >= new Date(dateBeforeMonth))
 
-        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.startDate.split("/")
-            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
-        })
-        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
 
-            const datePaper1 = AllPapers.createdDate
-            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-            return (new Date(detaPaper) >= new Date(dateBeforeMonth))
+                // const dateProject = AllProject.startDate.split("/")
+                // const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+                // return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+            })
+            dispatch(actions.setProjectStatic(AllProjectData.length));
+        }
+        if (ReducerData.AllPapers != null) {
+            let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+                const datePaper1 = AllPapers.createdDate
+                let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+                return (new Date(detaPaper) >= new Date(dateBeforeMonth))
+            })
+            dispatch(actions.setPaperStatic(AllPapersData.length));
+        }
+        if (ReducerData.AllTask != null) {
+            let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
+                const dateTask = AllTask.startDate.split("/")
+                const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+                return (new Date(dateFormater) >= new Date(dateBeforeMonth))
 
-        })
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+            })
+            dispatch(actions.setTaskStatic(AllTaskData.length))
 
-        })
-        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
-            const dateContact1 = (AllContact.createDateAndTime)
-            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
-            return (new Date(detaContact) >= new Date(dateBeforeMonth))
-
-        })
-
-        dispatch(actions.setProjectStatic(AllProjectData.length));
-        dispatch(actions.setPaperStatic(AllPapersData.length));
-        dispatch(actions.setContactStatic(AllContactData.length))
-        dispatch(actions.setTaskStatic(AllTaskData.length))
+        }
+        if (ReducerData.AllContact != null) {
+            let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
+                const dateContact1 = (AllContact.createDateAndTime)
+                let detaContact = moment(dateContact1).format("MM/DD/YYYY")
+                return (new Date(detaContact) >= new Date(dateBeforeMonth))
+            })
+            dispatch(actions.setContactStatic(AllContactData.length))
+        }
     }
     function filterByYear() {
         $(".filterBy").css("font-weight", "unset")
         $("#year").css("font-weight", "bold")
+        if (ReducerData.AllProject != null) {
+            let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
+                const dateProject1 = (AllProject.closeDate)
+                let dateProject = moment(dateProject1).format("MM/DD/YYYY");
+                return (new Date(dateProject) >= new Date(dateBeforeYear))
 
-        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.startDate.split("/")
-            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeYear))
+                // const dateProject = AllProject.startDate.split("/")
+                // const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+                // return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
-        })
-        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+            })
+            dispatch(actions.setProjectStatic(AllProjectData.length));
+        }
+        if (ReducerData.AllPapers != null) {
+            let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+                const datePaper1 = AllPapers.createdDate
+                let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+                return (new Date(detaPaper) >= new Date(dateBeforeYear))
 
-            const datePaper1 = AllPapers.createdDate
-            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-            return (new Date(detaPaper) >= new Date(dateBeforeYear))
+            })
+            dispatch(actions.setPaperStatic(AllPapersData.length))
+        }
+        if (ReducerData.AllTask != null) {
+            let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
 
-        })
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
+                const dateTask = AllTask.startDate.split("/")
+                const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+                return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
-            const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeYear))
+            })
+            dispatch(actions.setTaskStatic(AllTaskData.length))
 
-        })
-        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
-            const dateContact1 = (AllContact.createDateAndTime)
-
-            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
-            return (new Date(detaContact) >= new Date(dateBeforeYear))
-
-        })
-        dispatch(actions.setContactStatic(AllContactData.length))
-        dispatch(actions.setTaskStatic(AllTaskData.length))
-        dispatch(actions.setProjectStatic(AllProjectData.length));
-        dispatch(actions.setPaperStatic(AllPapersData.length));
-        dispatch(actions.ClickFilter(1));
+        }
+        if (ReducerData.AllContact != null) {
+            let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
+                const dateContact1 = (AllContact.createDateAndTime)
+                let detaContact = moment(dateContact1).format("MM/DD/YYYY");
+                return (new Date(detaContact) >= new Date(dateBeforeYear))
+            })
+            dispatch(actions.setContactStatic(AllContactData.length))
+        }
 
     }
-
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -264,8 +310,10 @@ export default withStyles(useStyles)(function Information() {
                             <div class="row justify-content-between">
                                 <div className="ml-2" >
                                     <div class="col-6 ml-2">
-                                        <h5>
-                                            {ReducerData.leaderStatic.sumContacts ? ReducerData.leaderStatic.sumContacts : "0"}</h5>
+                                        <h6>
+                                            {ReducerData.leaderStatic.sumContacts ? ReducerData.leaderStatic.sumContacts + "/5000" : "0/5000"}
+                                            <a href="https://pay.leader.codes/" className="leaderPay">+</a>
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="col-4" >
@@ -286,7 +334,8 @@ export default withStyles(useStyles)(function Information() {
                             <div class="row justify-content-between">
                                 <div className="ml-2" >
                                     <div class="col-6 ml-2">
-                                        <h5> {ReducerData.leaderStatic.sumPapers ? ReducerData.leaderStatic.sumPapers : "0"}</h5>
+                                        <h6>
+                                            {ReducerData.leaderStatic.sumPapers ? ReducerData.leaderStatic.sumPapers + "/500" : "0/500"}</h6>
                                     </div>
                                 </div>
                                 <div class="col-4" >
@@ -301,17 +350,20 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                     <Grid item xs={12} sm={3}  >
                         <Paper className="paperThree"
-                            onClick={() => { window.location.assign(` https://reacthub.dev.leader.codes/${user.username}/allWorkspace`) }}
+                            onClick={() => {
+                                window.location.assign(` 
+                            https://contacts.dev.leader.codes/${user.username}/deals`)
+                            }}
                             style={{ cursor: 'pointer', padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
-                                Total Projects {" "}
+                                Total Deals {" "}
                             </div>
                             <div class="row justify-content-between">
                                 <div className="ml-2">
                                     <div class="col-6 ml-2">
-                                        <h5>
-                                            {ReducerData.leaderStatic.sumProjects ? ReducerData.leaderStatic.sumProjects : "0"}
-                                        </h5>
+                                        <h6>
+                                            {ReducerData.leaderStatic.sumProjects ? ReducerData.leaderStatic.sumProjects + "/500" : "0/500"}
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -332,8 +384,8 @@ export default withStyles(useStyles)(function Information() {
                             <div class="row justify-content-between">
                                 <div class=" ml-2">
                                     <div className=" col-6 ml-2" >
-                                        <h5>{ReducerData.leaderStatic.sumTasks ? ReducerData.leaderStatic.sumTasks : "0"}
-                                        </h5>
+                                        <h6>{ReducerData.leaderStatic.sumTasks ? ReducerData.leaderStatic.sumTasks + "/500" : "0/500"}
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="col-4" >
@@ -353,7 +405,9 @@ export default withStyles(useStyles)(function Information() {
             </> : " "} */}
             {more ?
                 <>
-                    <p type="button" className="moreTxt1  moreBtn" onClick={() => { setMore(!more) }}>Less-</p>
+                    <p type="button" className="moreTxt1  moreBtn" onClick={() => {
+                        setMore(!more)
+                    }}>Less-</p>
 
                     <div className="div-container">
                         <Container className="p-0">
@@ -377,7 +431,7 @@ export default withStyles(useStyles)(function Information() {
                                             <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
                                             <div style={circleStyle3}>
                                             </div>
-                                            <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                            <Navbar.Brand style={{ fontSize: "14px" }}>Deals</Navbar.Brand>
                                             <div style={circleStyle4}>
                                             </div>
                                             <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
@@ -390,10 +444,12 @@ export default withStyles(useStyles)(function Information() {
                     <Chart2 />
                     {/* <div className="add-div"></div> */}
                 </>
+
                 :
                 <>
-                    {
-                        <p className="moreTxt1 moreBtn add " onClick={() => { setMore(!more) }}>More+</p>}
+                    <p className="moreTxt1 moreBtn  " onClick={() => { setMore(!more) }}>More+</p>
+                    {/* {
+                        $(".paperFour").css("color", "red")} */}
                 </>
                 // < type="button" className="moreTxt1  moreBtn"     onClick={() => { setMore(!more) }}>Less-</>
 

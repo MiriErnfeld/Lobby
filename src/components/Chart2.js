@@ -63,7 +63,6 @@ export default function TryChart() {
 
                 <div className=" d-flex justify-content-between align-items-center myClass in-small-screen">
                     <div className="marginClass">
-
                         <BarT></BarT>
                     </div>
                     <div class="add-div">
@@ -76,7 +75,7 @@ export default function TryChart() {
                             <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
                             <div style={circleStyle3}>
                             </div>
-                            <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                            <Navbar.Brand style={{ fontSize: "14px" }}>Deals</Navbar.Brand>
                             <div style={circleStyle4}>
                             </div>
                             <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
@@ -98,7 +97,7 @@ export default function TryChart() {
                                 <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
                                 <div style={circleStyle3}>
                                 </div>
-                                <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                <Navbar.Brand style={{ fontSize: "14px" }}>Deals</Navbar.Brand>
                                 <div style={circleStyle4}>
                                 </div>
                                 <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>

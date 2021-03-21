@@ -1,3 +1,4 @@
+import { data } from 'jquery';
 import { actions } from '../actions/staticAction'
 
 // ---------------A function that extracts the jwt from the cookies----------------
@@ -52,31 +53,33 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         return res.json();
       })
       .then((result) => {
-
+        ;
         dispatch(actions.setUser(result));
         //  fetch to get sum of projects for user-----------------
-        fetch(`https://reacthub.dev.leader.codes/api/${userName}/getAllProjectsForUser`, {
+        fetch(`https://contacts.dev.leader.codes/api/deal/${userName}/getAllDealsByUser`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
             Authorization: jwt,
 
           },
-        })
-          .then((data) => data.json())
+        }).then((data) => data.json())
           .then((data) => {
 
             //all data for project
-            let projectData = data.userProjectsList
+            let projectData = data
             //only sumProject
 
             if (projectData && projectData.length !== 0) {
-              let sumProject = data.countProjectsForUser
+              // let sumProject = data.countProjectsForUser
+              let result = projectData.result.length
+              dispatch(actions.setProjectStatic(result));
 
-              dispatch(actions.setProjectStatic(sumProject));
+
               dispatch(actions.setProjectData(projectData));
+
               dispatch(actions.setProjectChart(projectData));
-              dispatch(actions.ProjectChartDay(projectData));
+
 
               console.log(data)
             }
@@ -139,19 +142,27 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
             Authorization: jwt,
           },
         })
+
           .then((data) => data.json())
           .then((dataContact) => {
-            //all data for contact
-            let contactData = dataContact
-            //only sumContact
-            if (contactData && contactData.length !== 0) {
 
-              let sumContact = (dataContact.length)
+            if (data.status == "200") {
+              let contactData = dataContact
+              //only sumContact
+              if (contactData && contactData.length !== 0) {
+                let sumContact = (dataContact.length)
+                dispatch(actions.setContactStatic(sumContact));
 
-              dispatch(actions.setContactStatic(sumContact));
-              dispatch(actions.setContactData(contactData));
-              dispatch(actions.setContactChart(contactData));
-              console.log(contactData)
+                dispatch(actions.setContactData(contactData));
+                dispatch(actions.setContactChart(contactData));
+                console.log(contactData)
+              }
+            }
+            else {
+              dispatch(actions.setContactStatic("0"));
+              dispatch(actions.setContactData(null));
+              dispatch(actions.setContactChart(null));
+
             }
           })
       },

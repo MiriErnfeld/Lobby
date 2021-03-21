@@ -148,30 +148,31 @@
       .add{
         /* margin-bottom: -272px; */
     }
-    .imgProfil{
+    /* .imgProfil{
       margin-top: 230px;
-    }
-    .imgProfilinsmall{
+    } */
+    /* .imgProfilinsmall{
+      margin-top: 235px;
 
-    }
+    } */
   }
   @media screen and (min-width: 377px) and (max-width: 700px){
 
-    .in-small-profil{
+    /* .in-small-profil{
         padding-top: 88%;
-      }
-      .add{
+      } */
+      /* .add{
         margin-bottom: -242px;
-    }
+    } */
     .imgProfil{
       margin-top: 179px;
     }
   }
   @media screen and (min-width: 700px) and (max-width: 1024px){
-
+/* 
     .in-small-profil{
         padding-top: 50%;
-      }
+      } */
       .add{
         /* margin-bottom: -279px; */
     }

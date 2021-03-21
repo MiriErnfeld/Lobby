@@ -50,7 +50,7 @@ function SourcesCards(props) {
     const leaderApps = [
         {
             i: 0,
-            title: "Leader Box",
+            title: "Box",
             text: "CRM For Managing All Client Contact And Interactions Using Leader Tools",
             isActiveApp: true,
             color: "#2198FF",
@@ -74,7 +74,7 @@ function SourcesCards(props) {
         // },
         {
             i: 2,
-            title: "Leader Hub",
+            title: "Hub",
             text: "Manage Your Projects, Teams And Tasks, Priorities And Performance Goals",
             isActiveApp: true,
             color: "#6DD400",
@@ -98,7 +98,7 @@ function SourcesCards(props) {
         // },
         {
             i: 4,
-            title: "Leader Time",
+            title: "Time",
             text: "Intergrated Calendar For Managing Leads, Meetings Events And Deadlines",
             isActiveApp: true,
             color: "#B620E0",
@@ -111,7 +111,7 @@ function SourcesCards(props) {
 
         {
             i: 5,
-            title: "Leader papers",
+            title: "papers",
             text: "Intuitive Form Builder Including Api Integration With Popular Applications",
             isActiveApp: false,
             color: "#F7B500",
@@ -123,7 +123,7 @@ function SourcesCards(props) {
         },
         {
             i: 6,
-            title: "Leader CRM",
+            title: "Contacts",
             text: "Customizable Proposal Templates For Customer Quotations And Contracts",
             isActiveApp: true,
             color: "#6236FF",
@@ -242,6 +242,7 @@ function SourcesCards(props) {
             <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="col-12 d-flex justify-content-center">
                     <div className="imgProfil in-small-profil mt-3 align-items-center">
+                    <div className="inmore"></div>
                         <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img className="imgProfil imgProfilinsmall"
                                 onClick={navigateProfil} alt="img 1"

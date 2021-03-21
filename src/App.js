@@ -4,6 +4,7 @@ import './App.css';
 import SourcesCards from '../src/components/applictaionsCards/SourcesCards';
 import store from './Redux/staticStore';
 import InformationTemp from './components/InformationTemp';
+import Chart from './components/Chart'
 
 
 function App() {
