@@ -10,7 +10,7 @@
 .imgProfil{
     border-radius: 50%;
     width: 70px;
-    height: 70px;
+    /* height: 70px; */
     flex-shrink: 0;
     object-fit: cover;
   
@@ -128,10 +128,10 @@
           /* padding-top: 10%; */
       }
 
-      .in-small-hey{
-        padding-top: 180px;
-        margin-top: 71px !important;
-      }
+      /* .in-small-hey{
+        padding-top: 60px;
+        margin-top: 20px !important;
+      } */
       .moreTxt1{
         color: #75798E;
         text-align: center;
@@ -164,9 +164,9 @@
       /* .add{
         margin-bottom: -242px;
     } */
-    .imgProfil{
+    /* .imgProfil{
       margin-top: 179px;
-    }
+    } */
   }
   @media screen and (min-width: 700px) and (max-width: 1024px){
 /* 

@@ -46,6 +46,7 @@ function SourcesCards(props) {
     const [more, setMore] = useState(false);
     const [initial, setinitial] = useState(true);
     // const [jwt, setJwt] = useState("");
+    ;
 
     const leaderApps = [
         {
@@ -198,6 +199,7 @@ function SourcesCards(props) {
     }
 
     const showApps = (apps) => {
+
         return (
             <div className="row">
                 {apps.map((card) => card &&
@@ -242,7 +244,7 @@ function SourcesCards(props) {
             <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="col-12 d-flex justify-content-center">
                     <div className="imgProfil in-small-profil mt-3 align-items-center">
-                    <div className="inmore"></div>
+                        {props.inMore ? " " : <div className="inmore"></div>}
                         <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img className="imgProfil imgProfilinsmall"
                                 onClick={navigateProfil} alt="img 1"

@@ -126,7 +126,7 @@ color: #000000 !important;
 @media only screen and (max-width: 770px) {
     .inmore{
         display:block;
-        height:230px;
+        height:280px;
         background-color: aqua;
      }
     .MuiGrid-spacing-xs-4 > .MuiGrid-item{

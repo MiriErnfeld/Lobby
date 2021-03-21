@@ -19,6 +19,7 @@ import iconThree from '../img/iconThree.png'
 import { actions } from '../Redux/actions/staticAction'
 import Chart2 from './Chart2'
 import '../App.css'
+import SourcesCards from './applictaionsCards/SourcesCards';
 import '../components/applictaionsCards/SourcesCardsStyles.css'
 
 
@@ -96,6 +97,7 @@ export default withStyles(useStyles)(function Information() {
     const dispatch = useDispatch()
     const [more, setMore] = useState(false);
     const [full, setfull] = useState(true);
+    let [inmore, setInMore] = useState(false);
 
     // function fullData() {
     //       
@@ -405,7 +407,13 @@ export default withStyles(useStyles)(function Information() {
             </> : " "} */}
             {more ?
                 <>
+
+
                     <p type="button" className="moreTxt1  moreBtn" onClick={() => {
+                        console.log(inmore)
+
+                        setInMore(true)
+                        console.log(inmore)
                         setMore(!more)
                     }}>Less-</p>
 
@@ -447,17 +455,25 @@ export default withStyles(useStyles)(function Information() {
 
                 :
                 <>
-                    <p className="moreTxt1 moreBtn  " onClick={() => { setMore(!more) }}>More+</p>
+
+                    <p className="moreTxt1 moreBtn  " onClick={
+                        () => {
+                            ;
+                            setMore(!more)
+                            console.log(more)
+                            setInMore(false)
+
+                        }}>More+</p>
                     {/* {
                         $(".paperFour").css("color", "red")} */}
+                    {/* {alert(inMore)} */}
+
                 </>
                 // < type="button" className="moreTxt1  moreBtn"     onClick={() => { setMore(!more) }}>Less-</>
-
-
                 // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
             }
-
             {/* $(".in-small-profil").css("padding-top", "unset") */}
+            <SourcesCards inMore={inmore} />
         </div >
     )
 })
