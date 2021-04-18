@@ -17,6 +17,10 @@
     opacity: 1; 
     padding-left: 10px;
 }
+.moreTxt1 :hover{
+background-color:black;
+color: white;
+}
 
 .h6{
     padding-left: 2px;
