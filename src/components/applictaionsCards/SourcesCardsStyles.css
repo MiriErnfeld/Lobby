@@ -1,15 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.imgProfil{
+/* .imgProfil{
     border-radius: 50%;
     width: 70px;
-    /* height: 70px; */
     flex-shrink: 0;
     object-fit: cover;
   
-}
-
+} */
 .myCard{
     width: 11rem;
     border-radius: 7px;
@@ -27,12 +25,14 @@
     text-align: center;
 
 }
-
+/* .height{
+  height: 0;
+} */
 .moreTxt{
     color: #75798E;
     font-weight: bold;
     font-family: 'Roboto',sans-serif;
-}
+  }
 
 .moreTxt1{
     color: #75798E;

@@ -249,17 +249,17 @@ function SourcesCards(props) {
     return (
         <>
             <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
-                <div className="col-12 d-flex justify-content-center">
+                <div className="height col-12 d-flex justify-content-center">
                     <div className="imgProfil in-small-profil mt-3 align-items-center">
                         {props.inMore ? "" : <div className="inmore"></div>}
-                        <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
+                        {/* <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img className="imgProfil imgProfilinsmall"
                                 onClick={navigateProfil} alt="img 1"
                                 src={ReducerData.user.imgProfile ? ReducerData.user.imgProfile : user}
                                 onError={(e) => { e.target.onerror = null; e.target.src = user }
                                 }
                             />
-                        </Tooltip>
+                        </Tooltip> */}
                     </div>
                 </div>
 
