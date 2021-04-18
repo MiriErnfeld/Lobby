@@ -2,36 +2,37 @@ import produce from 'immer';
 import { createReducer } from "./reducerUtils";
 import moment from 'moment';
 
+
 const initialState = {
-    leaderStatic: { sumContacts: 0, sumPapers: 0, sumDeals: 0, sumTasks: 0 },
+    leaderStatic: { sumContacts: 0, sumPapers: 0, sumProjects: 0, sumTasks: 0 },
+    GougeContact: "0",
     dataStatic: [],
-    sumStatic: { viewer: 0, contactOptions: 0, submitioms: 0 },
     AllProject: [],
     AllTask: [],
     AllContact: [],
     AllPapers: [],
-    isClicked: 0,
     jwt: "",
     papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     tasks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     contacts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    arrTime: ['Day', 'Week', 'Month', 'Year'],
-    choose: 'Day',
     user: {}
 
 
 };
 
 const staticData = {
+
     setJwt(state, action) {
+
         state.jwt = (action.payload);
     },
     setUser(state, action) {
+        debugger
         state.user = (action.payload);
     },
     setContactStatic(state, action) {
-
+        debugger
         state.leaderStatic.sumContacts = action.payload
     },
     setProjectStatic(state, action) {
@@ -67,28 +68,6 @@ const staticData = {
         }
         state.tasks = [...arr];
     },
-    // setProjectChart(state = initialState, action) {
-
-    //     let allData = action.payload
-    //     const arr = [...state.projects];
-    //     for (let i = 0; i < allData.length; i++) {
-
-    //         const date1 = allData[i].startDate.split("/")
-    //         let date2 = date1[1]
-
-    //         if (date2[0] != 0) {
-    //             const x = (arr[date2]) + 1
-    //             arr[date2] = x;
-    //         }
-    //         else {
-    //             date2 = date2[1]
-    //             const x = (arr[date2]) + 1
-    //             arr[date2] = x;
-    //         }
-    //     }
-    //     state.projects = [...arr];
-    // },
-
 
     setProjectChart(state = initialState, action) {
         let allData = action.payload.result
@@ -136,26 +115,28 @@ const staticData = {
         }
     },
     setPaperChart(state = initialState, action) {
+        ;
+        if (action.payload != null) {
+            let allData = action.payload
+            console.log(initialState.papers)
+            const arr = [...state.papers];
+            for (let i = 0; i < allData.length; i++) {
 
-        let allData = action.payload
-        console.log(initialState.papers)
-        const arr = [...state.papers];
-        for (let i = 0; i < allData.length; i++) {
-
-            const date1 = allData[i].createdDate
-            let date11 = moment(date1).format("MM/DD/YYYY").split("/")
-            let date2 = date11[0]
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
+                const date1 = allData[i].createdDate
+                let date11 = moment(date1).format("MM/DD/YYYY").split("/")
+                let date2 = date11[0]
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
             }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
+            state.papers = [...arr];
         }
-        state.papers = [...arr];
     },
 
 
@@ -163,9 +144,6 @@ const staticData = {
         state.leaderStatic.sumPapers = action.payload
     },
 
-    setContactStatic(state, action) {
-        state.leaderStatic.sumContacts = action.payload
-    },
     setContactData(state, action) {
         state.AllContact = action.payload
     },

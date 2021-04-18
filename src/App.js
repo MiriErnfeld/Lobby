@@ -3,7 +3,9 @@ import { Provider } from 'react-redux';
 import './App.css';
 import store from './Redux/staticStore';
 import InformationTemp from './components/InformationTemp';
-import Chart from './components/Chart'
+
+
+
 
 
 function App() {
@@ -11,7 +13,7 @@ function App() {
     <>
       <Provider store={store}>
         <InformationTemp />
-   
+    
       </Provider>
     </>
   );

@@ -8,19 +8,24 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
-import styled from "styled-components";
+import HeaderLeader from '@leadercodes/leader-header'
 
 
 import './InformationTemp.css';
-import iconFive from '../img/iconFive.png'
-import iconOne from '../img/iconOne.png'
-import iconTwo from '../img/iconTwo.png';
-import iconThree from '../img/iconThree.png'
+// import iconFive from '../img/iconFive.png'
+// import iconOne from '../img/iconOne.png'
+// import iconTwo from '../img/iconTwo.png';
+// import iconThree from '../img/iconThree.png'
 import { actions } from '../Redux/actions/staticAction'
 import Chart2 from './Chart2'
 import '../App.css'
 import SourcesCards from './applictaionsCards/SourcesCards';
 import '../components/applictaionsCards/SourcesCardsStyles.css'
+import Gouge2 from './Gouge2'
+import GougeTask from './GougeTask'
+import GougeDeals from './GougeDeals'
+import GougePaper from './GougePaper'
+
 
 
 
@@ -35,7 +40,7 @@ let circleStyle1 = {
     padding: 6,
     margin: 6,
     display: "inline-block",
-    backgroundColor: "rgb(247, 181, 0)",
+    backgroundColor: "#DDA204",
     borderRadius: "50%",
     width: 1,
     height: 1,
@@ -47,7 +52,7 @@ let circleStyle2 = {
     margin: 6,
     display: "inline-block",
     // position:'absolute',
-    backgroundColor: "rgb(1, 220, 209)",
+    backgroundColor: "#0EBAA5",
     borderRadius: "50%",
     width: 1,
     height: 1,
@@ -71,7 +76,7 @@ let circleStyle4 = {
     margin: 6,
     display: "inline-block",
     // position:'absolute',
-    backgroundColor: "#ff4560",
+    backgroundColor: "#FD2443",
     borderRadius: "50%",
     width: 1,
     height: 1,
@@ -96,18 +101,7 @@ export default withStyles(useStyles)(function Information() {
     const user = ReducerData.user
     const dispatch = useDispatch()
     const [more, setMore] = useState(false);
-    const [full, setfull] = useState(true);
-    let [inmore, setInMore] = useState(false);
-
-    // function fullData() {
-    //       
-    //     if (ReducerData.sumTasks &&
-    //         ReducerData.sumContacts &&
-    //         ReducerData.sumPapers &&
-    //         ReducerData.sumProjects)
-    //         setfull(false)
-    //     console.log(full)
-    // }
+    let [inmore, setInMore] = useState(true);
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
@@ -238,6 +232,7 @@ export default withStyles(useStyles)(function Information() {
 
         }
         if (ReducerData.AllContact != null) {
+            debugger;
             let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
                 const dateContact1 = (AllContact.createDateAndTime)
                 let detaContact = moment(dateContact1).format("MM/DD/YYYY")
@@ -293,186 +288,189 @@ export default withStyles(useStyles)(function Information() {
 
     }
     return (
-        <div className="container-fluid mt-5">
-            <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
-                <div className="col-3 leadsInformation">
-                    Leads Information
-                </div>
-                <div className="col-3.5" style={{ direction: "rtl" }}>
+        <div>
+            <HeaderLeader appName={"Leader"} user={user ? user.username : ""} />
+            <div className="firstDiv" style={{ backgroundColor: 'rgb(248, 249, 250)', paddingTop: '80px' }}>
+                <div className="row pb-5" style={{ marginRight: '5%', marginLeft: '5%' }} >
                     <div className="col-3.5" style={{ direction: "rtl" }}>
-                    </div>
-                </div>‏
+                        <div className="col-3.5" style={{ direction: "rtl" }}>
+                        </div>
+                    </div>‏
              <Grid container spacing={4} style={{ marginLeft: "3px" }}>
-                    <Grid item xs={12} sm={3} >
-                        <Paper className="paperOne" onClick={() => { window.location.assign(` https://contacts.dev.leader.codes/${user.username}`) }}
-                            style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
-                            <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
-                                Total Contacts {" "}
-                            </div>
-                            <div class="row justify-content-between">
-                                <div className="ml-2" >
-                                    <div class="col-6 ml-2">
-                                        <h6>
-                                            {ReducerData.leaderStatic.sumContacts ? ReducerData.leaderStatic.sumContacts + "/5000" : "0/5000"}
-                                            <a href="https://pay.leader.codes/" className="leaderPay">+</a>
-                                        </h6>
+                        <Grid item xs={12} sm={3} >
+                            <Paper className="paperOne" onClick={() => { window.open(` https://contacts.dev.leader.codes/${user.username}`) }}
+                                style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#fff', height: ' 100px', width: '240px', color: '#DDA204' }}>
+                                <div className="ml-2 total" style={{ textAlign: 'start', fontWeight: 'bolder', color: 'black', fontSize: '12px' }}>
+                                    Total Contacts {" "}
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div className="ml-2" >
+                                        <div class="col-6 p-2">
+                                            <h6 style={{ fontSize: "19px", color: "#DDA204" }} className="h6">
+                                                {ReducerData.leaderStatic.sumContacts ? ReducerData.leaderStatic.sumContacts + "/5000" : "0/5000"}
+                                            </h6>
+                                        </div>
                                     </div>
+                                    <div className="gouge">
+                                        <Gouge2 className="gouge1"></Gouge2></div>
+                                    {/* <div onClick={"https://pay.leader.codes/"} className="upladge" style={{ backgroundColor: "#DDA204" }}>upradge</div> */}
+
+
                                 </div>
-                                <div class="col-4" >
-                                    <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconOne} style={{ height: '50%' }} alt="icon one" />
-                                    </Avatar>
+                                <div className="row" style={{ margin: '1px', fontWeight: 'bolder' }}>
                                 </div>
-                            </div>
-                            <div className="row" style={{ margin: '1px', fontWeight: 'bolder' }}>
-                            </div>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <Paper className="paperTwo" onClick={() => { window.location.assign(`https://papers.dev.leader.codes/admin/${user.username}`) }} style={{ padding: 10, background: '#ECFAFA', cursor: 'pointer', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
-                            <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
-                                Total Papers {" "}
-                            </div>
-                            <div class="row justify-content-between">
-                                <div className="ml-2" >
-                                    <div class="col-6 ml-2">
-                                        <h6>
-                                            {ReducerData.leaderStatic.sumPapers ? ReducerData.leaderStatic.sumPapers + "/500" : "0/500"}</h6>
+
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <Paper className="paperTwo" onClick={() => { window.open(`https://papers.dev.leader.codes/admin/${user.username}`) }} style={{ padding: 10, background: '#fff', cursor: 'pointer', color: '#01DCD1', borderRadius: '14px', height: ' 100px', width: '240px' }}>
+                                <div className="total" style={{ textAlign: 'start', fontWeight: 'bolder', color: 'black', fontSize: '12px' }}>
+                                    Total Papers {" "}
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div className="ml-2" >
+                                        <div class="col-6 p-2">
+                                            <h6 className="h6" style={{ fontSize: "19px" }}>
+                                                {ReducerData.leaderStatic.sumPapers ? ReducerData.leaderStatic.sumPapers + "/500" : "0/500"}</h6>
+                                        </div>
                                     </div>
+                                    <div className="gouge">
+                                        <GougePaper className="gouge1"></GougePaper></div>
                                 </div>
-                                <div class="col-4" >
-                                    <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconTwo} style={{ height: '50%' }} alt="icon one" />
-                                    </Avatar>
-                                </div>
-                            </div>
-                            <div className="row" style={{ margin: '1px' }}>
-                            </div>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={3}  >
-                        <Paper className="paperThree"
-                            onClick={() => {
-                                window.location.assign(` 
+                                {/* <div onClick={"https://pay.leader.codes/"} className="upladge" style={{ backgroundColor: "#0EBAA5" }}>upradge</div> */}
+
+                                {/* <div className="row" style={{ margin: '1px' }}>
+                                </div> */}
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={3}  >
+                            <Paper className="paperThree"
+                                onClick={() => {
+                                    window.open(` 
                             https://contacts.dev.leader.codes/${user.username}/deals`)
-                            }}
-                            style={{ cursor: 'pointer', padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
-                            <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
-                                Total Deals {" "}
-                            </div>
-                            <div class="row justify-content-between">
-                                <div className="ml-2">
-                                    <div class="col-6 ml-2">
-                                        <h6>
-                                            {ReducerData.leaderStatic.sumProjects ? ReducerData.leaderStatic.sumProjects + "/500" : "0/500"}
-                                        </h6>
+                                }}
+                                style={{ cursor: 'pointer', padding: 10, background: '#fff', color: '#5475E3', borderRadius: '14px', height: ' 100px', width: '240px' }}>
+                                <div className="ml-2 total" style={{ textAlign: 'start', fontWeight: 'bolder', color: 'black', fontSize: '12px' }}>
+                                    Total Deals {" "}
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div className="ml-2">
+                                        <div class="col-6 p-2">
+                                            <h6 className="h6" style={{ fontSize: "19px" }}>
+                                                {ReducerData.leaderStatic.sumProjects ? ReducerData.leaderStatic.sumProjects + "/500" : "0/500"}
+                                            </h6>
+                                        </div>
                                     </div>
+                                    <div className="gouge">
+                                        <GougeDeals className="gouge1"></GougeDeals></div>
+                                    {/* <div
+                                        onClick={() => {
+                                            debugger
+                                            window.location.assign(`https://pay.leader.codes/`)
+                                        }}
+                                        className="upladge" style={{ backgroundColor: "#5475E3" }}>upradge</div> */}
                                 </div>
-                                <div class="col-4">
-                                    <Avatar style={{ background: '#FFFFFF', boxShadow: ' 0px 0px 20px #00000033' }}>
-                                        <img src={iconThree} alt="icon three" />
-                                    </Avatar>
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={3}  >
+                            <Paper className="paperFour"
+                            
+                                onClick={() => {
+                                    window.open(` 
+                            https://reacthub.dev.leader.codes/${user.username}/myTasks`)
+                                }}
+                                style={{
+                                    paddingRight: '5px', paddingTop: '10px', background: '#fff', color: '#FD2443', borderRadius: '14px', cursor: 'pointer'
+                                    , height: ' 100px', width: '240px'
+                                }}>
+                                <div
+
+                                    className="ml-2 total cardFor" style={{ textAlign: 'start', fontWeight: 'bolder', color: 'black', fontSize: '12px' }}>
+                                    Total Tasks  {" "}
                                 </div>
-                            </div>
-                            <div className="row" style={{ margin: '1px' }}>
-                            </div>
-                        </Paper>
+                                <div class="row justify-content-between">
+                                    <div class=" ml-2">
+                                        <div className=" col-6 p-2" >
+                                            <h6 className="h6" style={{ fontSize: "19px" }}>{ReducerData.leaderStatic.sumTasks ? ReducerData.leaderStatic.sumTasks + "/500" : "0/500"}
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div className="gouge">
+                                        <GougeTask className="gouge1"></GougeTask></div>
+                                    {/* <p
+                                        onClick={() => {
+                                            window.location.assign(` 
+                                            https://pay.leader.codes/`)
+                                        }}
+                                        className="upladge" style={{ backgroundColor: "#FD2443" }}>
+                                        upradge
+                                    </p> */}
+                                </div>
+                                <div className="row" style={{ margin: '1px' }}>
+                                </div>
+                            </Paper>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={3}  >
-                        <Paper className="paperFour" style={{ padding: 10, background: '#fadbe091', border: '2px Solid rgba(255, 69, 96, 0.85)', color: 'rgba(255, 69, 96, 0.85)', borderRadius: '14px', cursor: 'pointer' }}>
-                            <div className="ml-2 cardFor" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
-                                Total Tasks  {" "}
-                            </div>
-                            <div class="row justify-content-between">
-                                <div class=" ml-2">
-                                    <div className=" col-6 ml-2" >
-                                        <h6>{ReducerData.leaderStatic.sumTasks ? ReducerData.leaderStatic.sumTasks + "/500" : "0/500"}
-                                        </h6>
+
+                </div>
+
+                {more ?
+                    <>
+                        <div className="d-flex justify-content-center align-content-center">
+                            <p className="moreTxt1  moreBtn" onClick={() => {
+                                console.log(inmore)
+                                setInMore(true)
+                                console.log(inmore)
+                                setMore(!more)
+                            }}>Show Less</p>
+                        </div>
+                        <div className="div-container">
+                            <Container className="p-0">
+                                <div class="container p-0">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-0 text-time-container">
+                                            <Navbar expand="md" variant="light" className="nav mb-0 d-flex navmy" style={{ justifyContent: "flex-start" }}>
+                                                <p id="day" onClick={filterByDay} className="filterBy">Day</p>
+                                                <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
+                                                <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
+                                                <p id="year" onClick={filterByYear} className="filterBy">Year</p>
+                                            </Navbar>
+                                        </div>
+                                        <div class="col-md-6 circle-menu-container">
+                                            <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                                                <p style={circleStyle1}>
+                                                </p>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                                                <div style={circleStyle2}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                                                <div style={circleStyle3}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Deals</Navbar.Brand>
+                                                <div style={circleStyle4}>
+                                                </div>
+                                                <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                                            </Navbar>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4" >
-                                    <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconFive} alt="icon five" style={{ paddingLeft: '16px', paddingBottom: '6px' }} />
-                                    </Avatar>
-                                </div>
-                            </div>
-                            <div className="row" style={{ margin: '1px' }}>
-                            </div>
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </div>
-            {/* {more ? <>{$(".in-small-profil").css("padding-top", "1px") &&
-                $(".paperThree").css("background-color", "#FFEDD2")}
-            </> : " "} */}
-            {more ?
-                <>
-
-
-                    <p type="button" className="moreTxt1  moreBtn" onClick={() => {
-                        console.log(inmore)
-
-                        setInMore(true)
-                        console.log(inmore)
-                        setMore(!more)
-                    }}>Less-</p>
-
-                    <div className="div-container">
-                        <Container className="p-0">
-                            <div class="container p-0">
-                                <div class="row">
-                                    <div class="col-md-6 mb-0 text-time-container">
-                                        <Navbar expand="md" variant="light" className="nav mb-0 d-flex navmy" style={{ justifyContent: "flex-start" }}>
-                                            <p id="day" onClick={filterByDay} className="filterBy">Day</p>
-                                            <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
-                                            <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
-                                            <p id="year" onClick={filterByYear} className="filterBy">Year</p>
-                                        </Navbar>
-                                    </div>
-                                    <div class="col-md-6 circle-menu-container">
-                                        <Navbar expand="md" variant="light" className="justify-content-end is-small">
-                                            <p style={circleStyle1}>
-                                            </p>
-                                            <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
-                                            <div style={circleStyle2}>
-                                            </div>
-                                            <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
-                                            <div style={circleStyle3}>
-                                            </div>
-                                            <Navbar.Brand style={{ fontSize: "14px" }}>Deals</Navbar.Brand>
-                                            <div style={circleStyle4}>
-                                            </div>
-                                            <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
-                                        </Navbar>
-                                    </div>
-                                </div>
-                            </div>
-                        </Container>
+                            </Container>
+                        </div>
+                        <Chart2 />
+                        <div style={{ backgroundColor: "rgb(248, 249, 250)", height: "55px" }} className="backgroundDiv"></div>
+                    </>
+                    :
+                    <div className="d-flex justify-content-center align-content-center">
+                        <p className="moreTxt1 moreBtn" onClick={
+                            () => {
+                                ;
+                                setMore(!more)
+                                console.log(more)
+                                setInMore(false)
+                            }}>Show More</p>
                     </div>
-                    <Chart2 />
-                    {/* <div className="add-div"></div> */}
-                </>
-
-                :
-                <>
-
-                    <p className="moreTxt1 moreBtn  " onClick={
-                        () => {
-                            ;
-                            setMore(!more)
-                            console.log(more)
-                            setInMore(false)
-
-                        }}>More+</p>
-                    {/* {
-                        $(".paperFour").css("color", "red")} */}
-                    {/* {alert(inMore)} */}
-
-                </>
-                // < type="button" className="moreTxt1  moreBtn"     onClick={() => { setMore(!more) }}>Less-</>
-                // REMEMBER!!!!!!!!!!1 $(".in-small-profil").css("padding-top", "unset")
-            }
-            {/* $(".in-small-profil").css("padding-top", "unset") */}
+                }
+            </div>
             <SourcesCards inMore={inmore} />
         </div >
     )

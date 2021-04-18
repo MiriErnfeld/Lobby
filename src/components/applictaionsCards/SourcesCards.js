@@ -201,7 +201,7 @@ function SourcesCards(props) {
     const showApps = (apps) => {
 
         return (
-            <div className="row">
+            <div className="row all-apps-in-small">
                 {apps.map((card) => card &&
                     <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xs-12 mb-5 d-flex justify-content-center">
                         <div class="box myCard"
@@ -211,15 +211,22 @@ function SourcesCards(props) {
                             }}
                             onClick={() => {
                                 // if (card.isActiveApp)
+
+                                // console.log(ReducerData.jwt)
+
                                 // console.log(ReducerData.jwt)
                                 window.open(card.url)
+                                window.open(card.url)
+
                                 // else
                                 //     setClickedApplicationIndex(card.i)
                             }}
                             onMouseEnter={() => {
+                                debugger
                                 setIndex(card.i)
                             }}
                             onMouseLeave={() => {
+                                debugger
                                 setIndex(-1)
                                 setClickedApplicationIndex(-1)
                             }}
@@ -244,7 +251,7 @@ function SourcesCards(props) {
             <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="col-12 d-flex justify-content-center">
                     <div className="imgProfil in-small-profil mt-3 align-items-center">
-                        {props.inMore ? " " : <div className="inmore"></div>}
+                        {props.inMore ? "" : <div className="inmore"></div>}
                         <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img className="imgProfil imgProfilinsmall"
                                 onClick={navigateProfil} alt="img 1"

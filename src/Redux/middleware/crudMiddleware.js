@@ -18,6 +18,8 @@ export const getCookie = (c_name) => {
 };
 
 //I want to get the kind of the jwt according to the url
+
+// let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI4dEZnM08xQW5mVmRkamdEWVFKaWkzcXNFM2gxIiwiZW1haWwiOiJ0c0BnbWFpbC5jb20iLCJpYXQiOjE2MTUzNjU2ODh9.znsJQnFsJVc0ehuT-Rk57gnyDuwtOoKxfdz8Kfo5iw8";
 let jwt = ""
 
 const getJwt = (url) => {
@@ -41,47 +43,45 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     let userName = (url.pathname.split('/')[1]);
     getJwt(url);
     dispatch(actions.setJwt(jwt))
-
     return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
       {
         method: 'GET', headers: { 'authorization': jwt }
       })
       .then((res) => {
         if (res.status === 401) {
-          window.location.assign(`https://dev.leader.codes/login`);
+          window.location.assign(`https://accounts.codes/lobby/login`);
         }
         return res.json();
       })
       .then((result) => {
-        ;
+
         dispatch(actions.setUser(result));
-        //  fetch to get sum of projects for user-----------------
+        //  fetch to get sum of Deals-(Project) for user-----------------
         fetch(`https://contacts.dev.leader.codes/api/deal/${userName}/getAllDealsByUser`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
             Authorization: jwt,
-
           },
         }).then((data) => data.json())
           .then((data) => {
-
-            //all data for project
-            let projectData = data
-            //only sumProject
-
-            if (projectData && projectData.length !== 0) {
-              // let sumProject = data.countProjectsForUser
-              let result = projectData.result.length
-              dispatch(actions.setProjectStatic(result));
-
-
-              dispatch(actions.setProjectData(projectData));
-
-              dispatch(actions.setProjectChart(projectData));
-
-
-              console.log(data)
+            if (!data.status) {
+              //all data for project
+              let projectData = data
+              //only sumProject
+              if (projectData && projectData.length !== 0) {
+                // let sumProject = data.countProjectsForUser
+                let result = projectData.result.length
+                dispatch(actions.setProjectStatic(result));
+                dispatch(actions.setProjectData(projectData));
+                dispatch(actions.setProjectChart(projectData));
+                console.log(data)
+              }
+            }
+            else {
+              dispatch(actions.setProjectStatic("0"));
+              dispatch(actions.setProjectData(null));
+              dispatch(actions.setProjectChart(null));
             }
           })
         // fetch to get sum tasks for user-------------
@@ -89,25 +89,27 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            // Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A3M1NkMHRXaDJZVzA4ZFkyIiwiZW1haWwiOiJyZW5hbmFAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjA3NTkxOTI5fQ.U2FQ7I4qBXW9DF-SVJqxKiWgVs5tjSo06pyvmuwzCFU",
             Authorization: jwt,
-
           },
         })
-
           .then((data) => data.json())
           .then((data) => {
-
-            //all data for project
-            let taskData = data.userTasksList
-            //only sumTask
-            if (taskData && taskData.length !== 0) {
-
-              let sumTask = (data.countTasksForUser)
-              dispatch(actions.setTaskStatic(sumTask));
-              dispatch(actions.setTaskData(taskData));
-              dispatch(actions.setTaskChart(taskData));
-              console.log(data)
+            if (!data.status) {
+              //all data for project
+              let taskData = data.userTasksList
+              //only sumTask
+              if (taskData && taskData.length !== 0) {
+                let sumTask = (data.countTasksForUser)
+                dispatch(actions.setTaskStatic(sumTask));
+                dispatch(actions.setTaskData(taskData));
+                dispatch(actions.setTaskChart(taskData));
+                console.log(data)
+              }
+            }
+            else {
+              dispatch(actions.setTaskStatic("0"));
+              dispatch(actions.setTaskData(null));
+              dispatch(actions.setTaskChart(null));
             }
           })
         //  fetch to get sum of papers for user-----------------
@@ -115,23 +117,28 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            // Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJEWWMzVlVtRUhTY3FhWkJ3MzAwbHY4OWZuYTgyIiwiZW1haWwiOiJydXRoMTA5NDc2QGdtYWlsLmNvbSIsImlhdCI6MTYxMTcyNjEzN30.sDgXmAvDj3JirPgU5AksbPVMdtxHVIAU9rgTFAeAluE",
             Authorization: jwt,
 
           },
         })
           .then((data) => data.json())
           .then((data) => {
-            // let sumPapers = (data.quotes.length)
-            if (data.quotes && data.quotes.length !== 0) {
-
-              let sumPapers = (data.quotes.length)
-              let d = data.quotes
-
-              dispatch(actions.setPaperStatic(sumPapers));
-              dispatch(actions.setPaperData(d));
-              dispatch(actions.setPaperChart(d));
-              console.log(data)
+            debugger
+            if (!data.status) {
+              // let sumPapers = (data.quotes.length)
+              if (data.quotes && data.quotes.length !== 0) {
+                let sumPapers = (data.quotes.length)
+                let dataQuotes = data.quotes
+                dispatch(actions.setPaperStatic(sumPapers));
+                dispatch(actions.setPaperData(dataQuotes));
+                dispatch(actions.setPaperChart(dataQuotes));
+                console.log(data)
+              }
+            }
+            else {
+              dispatch(actions.setPaperStatic("0"));
+              dispatch(actions.setPaperData(null));
+              dispatch(actions.setPaperChart(null));
             }
           })
         // fetch to get sum of contacts for user----------------------
@@ -142,17 +149,14 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
             Authorization: jwt,
           },
         })
-
           .then((data) => data.json())
           .then((dataContact) => {
-
-            if (data.status == "200") {
+            if (!data.status) {
               let contactData = dataContact
               //only sumContact
               if (contactData && contactData.length !== 0) {
                 let sumContact = (dataContact.length)
                 dispatch(actions.setContactStatic(sumContact));
-
                 dispatch(actions.setContactData(contactData));
                 dispatch(actions.setContactChart(contactData));
                 console.log(contactData)
@@ -162,13 +166,33 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
               dispatch(actions.setContactStatic("0"));
               dispatch(actions.setContactData(null));
               dispatch(actions.setContactChart(null));
-
             }
           })
       },
         (err) => {
           return err;
         })
+  }
+  return next(action)
+}
+export const extractJwt = ({ dispatch, getState }) => next => action => {
+  if (action.type === 'EXTRACT_JWT') {
+    debugger
+    let params = (new URL(document.location)).searchParams;
+    let jwtGlobal = params.get('jwt');
+    if (jwtGlobal) {
+      let newUrl = window.location.href
+      newUrl = newUrl.split('?jwt=')
+      newUrl = newUrl[0]
+      let date = new Date(Date.now() + 86400e3);
+      date = date.toUTCString();
+      var expires = "expires=" + date;
+      document.cookie = "devJwt" + "=" + jwtGlobal + ";" + expires + ";path=/";
+      window.location.replace(newUrl)
+    }
+    else {
+      dispatch({ type: 'INIT_DATA' });
+    }
   }
   return next(action)
 }

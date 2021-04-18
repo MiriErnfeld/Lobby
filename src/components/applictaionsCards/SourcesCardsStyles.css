@@ -1,12 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.warpDiv{
-    /* margin-right: 18%;
-    margin-left: 18%;
-    margin-bottom: 11%; */
-}
-
 .imgProfil{
     border-radius: 50%;
     width: 70px;
@@ -62,6 +56,7 @@
     font-weight: 500;
     font-family: Roboto, sans-serif;
     min-height: 30px;
+    text-align: center;
     }
 
 .divTitle{
@@ -112,76 +107,51 @@
 
   .moreBtn{
       cursor: pointer;
+      border: 1px solid #000000;
+      border-radius: 21px;
+      padding: 1px 17px;
+      font-size: 12px;
+   
   }
+  
   .moreBtn1{
     cursor: pointer;
     border: 1px solid ;
 }
 
   @media only screen and (max-width: 770px) {
-      .title{
+      .title  {
           font-size: 25px;
           text-align: center;
           font-weight: bold;
           font-family: Roboto,sans-serif;
-          /* margin-top: 20px; */
-          /* padding-top: 10%; */
-      }
+         }
 
-      /* .in-small-hey{
-        padding-top: 60px;
-        margin-top: 20px !important;
-      } */
+
       .moreTxt1{
         color: #75798E;
         text-align: center;
         font-weight: bold;
         font-family: 'Roboto',sans-serif;
         margin-left: 2px;
-        margin-bottom: 31px;
+        margin-bottom: 38px;
     }
   }
   @media only screen and (max-width: 376px) {
-    /* .in-small-profil{
-        padding-top: 120%;
-      } */
-      .add{
-        /* margin-bottom: -272px; */
-    }
-    /* .imgProfil{
-      margin-top: 230px;
-    } */
-    /* .imgProfilinsmall{
-      margin-top: 235px;
 
-    } */
   }
   @media screen and (min-width: 377px) and (max-width: 700px){
 
-    /* .in-small-profil{
-        padding-top: 88%;
-      } */
-      /* .add{
-        margin-bottom: -242px;
-    } */
-    /* .imgProfil{
-      margin-top: 179px;
-    } */
   }
   @media screen and (min-width: 700px) and (max-width: 1024px){
-/* 
-    .in-small-profil{
-        padding-top: 50%;
-      } */
-      .add{
-        /* margin-bottom: -279px; */
-    }
+
     .navmy{
-margin-left: 165px;
+     margin-left: 165px;
     
 }
   }
- /* @media (min-width: 992px){
-.container{
-    max-width: 1300px !important;
-    margin-right: -5px !important;}} */
+  @media screen and (max-width: 350px) {
+  .all-apps-in-small{
+    width: 120%;
+    max-width: 120%;
+  }}

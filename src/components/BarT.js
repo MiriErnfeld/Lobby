@@ -1,4 +1,5 @@
 
+
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 
@@ -63,7 +64,7 @@ export default function ApexChart() {
       chart: {
         height: 350,
         type: 'bar',
-        background: '#f8f9fa',
+        background: '#fff',
 
         toolbar: {
           show: false
@@ -74,7 +75,7 @@ export default function ApexChart() {
       // viewWindow: { min: 0 }, /*this also makes 0 = min value*/
       // format: '0',
 
-      colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
+      colors: ['rgb(221, 162, 4)', 'rgb(14, 186, 165)', 'rgb(103, 114, 222)', 'rgb(253, 36, 67)'],
       plotOptions: {
         bar: {
           borderRadius: 6,
@@ -94,12 +95,12 @@ export default function ApexChart() {
       },
       tooltip: {
 
-        callbacks: {
-          label: function (tooltipItem, data) {
-            var tooltipValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-            return parseInt(tooltipValue).toLocaleString();
-          }
-        },
+        // callbacks: {
+        //   label: function (tooltipItem, data) {
+        //     var tooltipValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+        //     return parseInt(tooltipValue).toLocaleString();
+        //   }
+        // },
 
 
         enabled: true,

@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
-import moment from 'moment'; 
+import moment from 'moment';
 
 import './chart.css'
 
-export default function ApexChart() {
 
-  
+
+
+export default function ApexChart() {
+  ;
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
+  console.log(UpdatedData);
+  ;
+  ;
   let currentYear = moment().format("YYYY")
+    ;
   const state = {
     series: [
 
@@ -52,9 +58,10 @@ export default function ApexChart() {
       },
       scales: {
       },
-      colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
+      colors: ['rgb(221, 162, 4)', 'rgb(14, 186, 165)', 'rgb(103, 114, 222)', 'rgb(253, 36, 67)'],
+
       chart: {
-        background: '#f8f9fa',
+        background: '#fff',
         zoom: { enabled: false },
         height: 350,
         type: "line",
@@ -88,6 +95,7 @@ export default function ApexChart() {
   };
   return (
     <div id="chart" className="return-chart">
+      {UpdatedData.leaderStatic.sumDeals}
       <ReactApexChart options={state.options} series={state.series} type="line" height="110%" width="88%" />
     </div>
   );
