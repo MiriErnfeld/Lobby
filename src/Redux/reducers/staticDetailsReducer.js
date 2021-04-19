@@ -100,27 +100,26 @@ const staticData = {
     setContactChart(state = initialState, action) {
         debugger
         if (action.payload != null) {
-            if (!(action.payload.error)) {
-                let allData = action.payload
-                console.log(initialState.contacts)
-                const arr = [...state.contacts];
-                for (let i = 0; i < allData.length; i++) {
 
-                    const date1 = allData[i].createDateAndTime
-                    let date11 = moment(date1).format("MM/DD/YYYY").split("/")
-                    let date2 = date11[0]
-                    if (date2[0] != 0) {
-                        const x = (arr[date2]) + 1
-                        arr[date2] = x;
-                    }
-                    else {
-                        date2 = date2[1]
-                        const x = (arr[date2]) + 1
-                        arr[date2] = x;
-                    }
+            let allData = action.payload
+            console.log(initialState.contacts)
+            const arr = [...state.contacts];
+            for (let i = 0; i < allData.length; i++) {
+
+                const date1 = allData[i].createDateAndTime
+                let date11 = moment(date1).format("MM/DD/YYYY").split("/")
+                let date2 = date11[0]
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
                 }
-                state.contacts = [...arr];
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
             }
+            state.contacts = [...arr];
         }
     },
     setPaperChart(state = initialState, action) {
