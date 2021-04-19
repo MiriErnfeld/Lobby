@@ -28,7 +28,7 @@
 .in-small-screen{
     height: 12rem;
     width: 82%;
-    margin-left: 9%;
+    margin-left: 11%;
 }
 .container-chart{
     /* margin-right: -27px; */
@@ -42,7 +42,7 @@
     }
     #chart:nth-of-type(1) svg{
         margin-top: -50px!important;
-        margin-left: 22px !important;
+        margin-left: 30px !important;
     }
     .container-chart{
         margin-right: 30px;
