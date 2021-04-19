@@ -42,7 +42,7 @@
     }
     #chart:nth-of-type(1) svg{
         margin-top: -50px!important;
-        margin-left: 30px !important;
+        margin-left: 20px !important;
     }
     .container-chart{
         margin-right: 30px;

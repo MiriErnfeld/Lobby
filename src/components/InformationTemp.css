@@ -163,7 +163,7 @@ color: #000000 !important;
     .is-small{
         margin-top: 29px;
         margin-bottom: 49px;
-        margin-left: unset;
+        margin-left: -3%;
         font-size: 2px;
         font-display:unset;
         zoom:0.8;
@@ -175,7 +175,7 @@ color: #000000 !important;
     .is-small1{
         margin-top: 43px;
         margin-bottom: 49px;
-        margin-left: unset;
+        margin-left: -3%;
         font-size: 2px;
         font-display:unset;
         zoom:0.8;
@@ -204,3 +204,13 @@ color: #000000 !important;
             max-width: 24% !important;
                 }
     }
+    @media only screen and (max-width: 425px){
+.is-small {
+    margin-top: 26px;
+    /* margin-bottom: 48px; */
+    margin-left: 5%;}
+    .is-small1 {
+        margin-top: 47px;
+        /* margin-bottom: 48px; */
+        margin-left: 4%;}
+}
