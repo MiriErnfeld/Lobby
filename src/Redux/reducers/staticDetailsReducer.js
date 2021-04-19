@@ -28,7 +28,7 @@ const staticData = {
         state.jwt = (action.payload);
     },
     setUser(state, action) {
-
+        debugger
         state.user = (action.payload);
     },
     setContactStatic(state, action) {
@@ -40,8 +40,12 @@ const staticData = {
         state.leaderStatic.sumProjects = action.payload
     },
     setProjectData(state, action) {
-
-        state.AllProject = action.payload.result
+        if (action.payload != null) {
+            state.AllProject = action.payload.result
+        }
+        else {
+            state.AllProject = action.payload
+        }
     },
     setTaskStatic(state, action) {
         state.leaderStatic.sumTasks = action.payload

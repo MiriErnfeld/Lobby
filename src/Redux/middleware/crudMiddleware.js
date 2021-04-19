@@ -25,7 +25,6 @@ let jwt = ""
 const getJwt = (url) => {
   debugger
   // document.cookie && document.cookie.includes("devJwt") ? document.cookie.split(";")
-
   // url.href.includes('dev') ?
   jwt = document.cookie.includes('devJwt') ?
     document.cookie.split(";")
@@ -46,6 +45,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     let userName = (url.pathname.split('/')[1]);
     getJwt(url);
     dispatch(actions.setJwt(jwt))
+    debugger
     return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
       {
         method: 'GET', headers: { 'authorization': jwt }
@@ -57,7 +57,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         return res.json();
       })
       .then((result) => {
-
+        debugger
         dispatch(actions.setUser(result));
         //  fetch to get sum of Deals-(Project) for user-----------------
         fetch(`https://contacts.dev.leader.codes/api/deal/${userName}/getAllDealsByUser`, {
@@ -73,6 +73,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
               let projectData = data
               //only sumProject
               if (projectData && projectData.length !== 0) {
+                debugger
                 // let sumProject = data.countProjectsForUser
                 let result = projectData.result.length
                 dispatch(actions.setProjectStatic(result));
