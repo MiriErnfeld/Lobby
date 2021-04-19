@@ -16,7 +16,9 @@
     margin-left: 0%;
     margin-right: 0%;
 }
-
+.space{
+  margin-top: 5rem!important;
+}
 .myCardTitle{
     border-bottom-left-radius: 7px !important;
     border-bottom-right-radius:7px !important;

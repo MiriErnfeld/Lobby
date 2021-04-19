@@ -28,11 +28,11 @@ const staticData = {
         state.jwt = (action.payload);
     },
     setUser(state, action) {
-        debugger
+
         state.user = (action.payload);
     },
     setContactStatic(state, action) {
-        debugger
+
         state.leaderStatic.sumContacts = action.payload
     },
     setProjectStatic(state, action) {

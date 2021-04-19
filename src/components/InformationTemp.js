@@ -229,7 +229,7 @@ export default withStyles(useStyles)(function Information() {
             dispatch(actions.setTaskStatic(AllTaskData.length))
         }
         if (ReducerData.AllContact != null) {
-            debugger;
+            ;
             let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
                 const dateContact1 = (AllContact.createDateAndTime)
                 let detaContact = moment(dateContact1).format("MM/DD/YYYY")
@@ -354,7 +354,7 @@ export default withStyles(useStyles)(function Information() {
                                         <GougeDeals className="gouge1"></GougeDeals></div>
                                     {/* <div
                                         onClick={() => {
-                                            debugger
+                                             
                                             window.location.assign(`https://pay.leader.codes/`)
                                         }}
                                         className="upladge" style={{ backgroundColor: "#5475E3" }}>upradge</div> */}

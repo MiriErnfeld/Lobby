@@ -123,7 +123,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         })
           .then((data) => data.json())
           .then((data) => {
-            debugger
+
             if (!data.status) {
               // let sumPapers = (data.quotes.length)
               if (data.quotes && data.quotes.length !== 0) {
@@ -151,6 +151,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         })
           .then((data) => data.json())
           .then((dataContact) => {
+            debugger
             if (!data.status) {
               let contactData = dataContact
               //only sumContact
@@ -177,7 +178,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 }
 export const extractJwt = ({ dispatch, getState }) => next => action => {
   if (action.type === 'EXTRACT_JWT') {
-    debugger
+
     let params = (new URL(document.location)).searchParams;
     let jwtGlobal = params.get('jwt');
     if (jwtGlobal) {

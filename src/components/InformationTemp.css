@@ -89,7 +89,7 @@ font-size: 20px;
 .is-small{
     font-size: 4px !important;
     /* width: 100%; */
-    margin-left:140px;
+    margin-left:90px;
 }
   .circleStyle{
         padding: 6;
@@ -139,7 +139,8 @@ color: #000000 !important;
     }
     .inmore{
         display:block;
-        height:230px;     
+        height:230px;
+        background-color: black !important;     
      }
     .MuiGrid-spacing-xs-4 > .MuiGrid-item{
         max-width: 100% !important;

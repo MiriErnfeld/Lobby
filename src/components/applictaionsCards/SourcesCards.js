@@ -222,11 +222,11 @@ function SourcesCards(props) {
                                 //     setClickedApplicationIndex(card.i)
                             }}
                             onMouseEnter={() => {
-                                debugger
+
                                 setIndex(card.i)
                             }}
                             onMouseLeave={() => {
-                                debugger
+
                                 setIndex(-1)
                                 setClickedApplicationIndex(-1)
                             }}
@@ -248,7 +248,7 @@ function SourcesCards(props) {
 
     return (
         <>
-            <div className="warpDiv row mt-5 offset-2 col-8  d-flex justify-content-center align-items-center">
+            <div className="warpDiv space row  offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="height col-12 d-flex justify-content-center">
                     <div className="imgProfil in-small-profil mt-3 align-items-center">
                         {props.inMore ? "" : <div className="inmore"></div>}
