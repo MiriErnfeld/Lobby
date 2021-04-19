@@ -205,8 +205,6 @@ export default withStyles(useStyles)(function Information() {
                 const dateProject1 = (AllProject.closeDate)
                 let dateProject = moment(dateProject1).format("MM/DD/YYYY");
                 return (new Date(dateProject) >= new Date(dateBeforeMonth))
-
-
                 // const dateProject = AllProject.startDate.split("/")
                 // const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
                 // return (new Date(dateFormater) >= new Date(dateBeforeMonth))
@@ -229,7 +227,6 @@ export default withStyles(useStyles)(function Information() {
 
             })
             dispatch(actions.setTaskStatic(AllTaskData.length))
-
         }
         if (ReducerData.AllContact != null) {
             debugger;
@@ -249,11 +246,9 @@ export default withStyles(useStyles)(function Information() {
                 const dateProject1 = (AllProject.closeDate)
                 let dateProject = moment(dateProject1).format("MM/DD/YYYY");
                 return (new Date(dateProject) >= new Date(dateBeforeYear))
-
                 // const dateProject = AllProject.startDate.split("/")
                 // const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
                 // return (new Date(dateFormater) >= new Date(dateBeforeYear))
-
             })
             dispatch(actions.setProjectStatic(AllProjectData.length));
         }
@@ -262,20 +257,16 @@ export default withStyles(useStyles)(function Information() {
                 const datePaper1 = AllPapers.createdDate
                 let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
                 return (new Date(detaPaper) >= new Date(dateBeforeYear))
-
             })
             dispatch(actions.setPaperStatic(AllPapersData.length))
         }
         if (ReducerData.AllTask != null) {
             let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-
                 const dateTask = AllTask.startDate.split("/")
                 const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
                 return (new Date(dateFormater) >= new Date(dateBeforeYear))
-
             })
             dispatch(actions.setTaskStatic(AllTaskData.length))
-
         }
         if (ReducerData.AllContact != null) {
             let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
@@ -285,7 +276,6 @@ export default withStyles(useStyles)(function Information() {
             })
             dispatch(actions.setContactStatic(AllContactData.length))
         }
-
     }
     return (
         <div>
@@ -338,7 +328,6 @@ export default withStyles(useStyles)(function Information() {
                                         <GougePaper className="gouge1"></GougePaper></div>
                                 </div>
                                 {/* <div onClick={"https://pay.leader.codes/"} className="upladge" style={{ backgroundColor: "#0EBAA5" }}>upradge</div> */}
-
                                 {/* <div className="row" style={{ margin: '1px' }}>
                                 </div> */}
                             </Paper>
