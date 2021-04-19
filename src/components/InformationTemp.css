@@ -111,8 +111,12 @@ color: #000000 !important;
 }
 .nav{
     flex-wrap: nowrap;
-    margin-left: 1px;
+    margin-left: -36px;
 }
+.nav2{
+    margin-left: 110px;
+}
+
 .navbar{
     flex-wrap: nowrap;
     /* margin-left: 5px; */

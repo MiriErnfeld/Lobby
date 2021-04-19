@@ -363,7 +363,7 @@ export default withStyles(useStyles)(function Information() {
                         </Grid>
                         <Grid item xs={12} sm={3}  >
                             <Paper className="paperFour"
-                            
+
                                 onClick={() => {
                                     window.open(` 
                             https://reacthub.dev.leader.codes/${user.username}/myTasks`)
@@ -426,7 +426,7 @@ export default withStyles(useStyles)(function Information() {
                                             </Navbar>
                                         </div>
                                         <div class="col-md-6 circle-menu-container">
-                                            <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                                            <Navbar expand="md" variant="light" className="justify-content-end is-small nav2">
                                                 <p style={circleStyle1}>
                                                 </p>
                                                 <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
