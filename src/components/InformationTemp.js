@@ -279,7 +279,7 @@ export default withStyles(useStyles)(function Information() {
     }
     return (
         <div>
-            <HeaderLeader appName={"Leader"} user={user ? user.username : ""} />
+            <HeaderLeader appName={"Leader"} userName={user ? user.username : ""} />
             <div className="firstDiv" style={{ backgroundColor: 'rgb(248, 249, 250)', paddingTop: '80px' }}>
                 <div className="row pb-5" style={{ marginRight: '5%', marginLeft: '5%' }} >
                     <div className="col-3.5" style={{ direction: "rtl" }}>

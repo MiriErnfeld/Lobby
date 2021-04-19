@@ -28,7 +28,7 @@ const staticData = {
         state.jwt = (action.payload);
     },
     setUser(state, action) {
-        debugger
+
         state.user = (action.payload);
     },
     setContactStatic(state, action) {
@@ -54,56 +54,13 @@ const staticData = {
         state.AllTask = action.payload
     },
     setTaskChart(state = initialState, action) {
-        let allData = action.payload
-        const arr = [...state.tasks];
-        for (let i = 0; i < allData.length; i++) {
-
-            const date1 = allData[i].startDate.split("/")
-            let date2 = date1[1]
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-        }
-        state.tasks = [...arr];
-    },
-
-    setProjectChart(state = initialState, action) {
-        let allData = action.payload.result
-        const arr = [...state.projects];
-        for (let i = 0; i < allData.length; i++) {
-            const date1 = allData[i].closeDate
-            let date11 = moment(date1).format("MM/DD/YYYY").split("/")
-            let date2 = date11[0]
-
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-        }
-        state.projects = [...arr];
-    },
-    setContactChart(state = initialState, action) {
-
         if (action.payload != null) {
             let allData = action.payload
-            console.log(initialState.contacts)
-            const arr = [...state.contacts];
+            const arr = [...state.tasks];
             for (let i = 0; i < allData.length; i++) {
 
-                const date1 = allData[i].createDateAndTime
-                let date11 = moment(date1).format("MM/DD/YYYY").split("/")
-                let date2 = date11[0]
+                const date1 = allData[i].startDate.split("/")
+                let date2 = date1[1]
                 if (date2[0] != 0) {
                     const x = (arr[date2]) + 1
                     arr[date2] = x;
@@ -114,12 +71,60 @@ const staticData = {
                     arr[date2] = x;
                 }
             }
+            state.tasks = [...arr];
+        }
+    },
 
-            state.contacts = [...arr];
+    setProjectChart(state = initialState, action) {
+        if (action.payload != null) {
+            let allData = action.payload.result
+            const arr = [...state.projects];
+            for (let i = 0; i < allData.length; i++) {
+                const date1 = allData[i].closeDate
+                let date11 = moment(date1).format("MM/DD/YYYY").split("/")
+                let date2 = date11[0]
+
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+            }
+            state.projects = [...arr];
+        }
+    },
+    setContactChart(state = initialState, action) {
+        debugger
+        if (action.payload != null) {
+            if (!(action.payload.error)) {
+                let allData = action.payload
+                console.log(initialState.contacts)
+                const arr = [...state.contacts];
+                for (let i = 0; i < allData.length; i++) {
+
+                    const date1 = allData[i].createDateAndTime
+                    let date11 = moment(date1).format("MM/DD/YYYY").split("/")
+                    let date2 = date11[0]
+                    if (date2[0] != 0) {
+                        const x = (arr[date2]) + 1
+                        arr[date2] = x;
+                    }
+                    else {
+                        date2 = date2[1]
+                        const x = (arr[date2]) + 1
+                        arr[date2] = x;
+                    }
+                }
+                state.contacts = [...arr];
+            }
         }
     },
     setPaperChart(state = initialState, action) {
-        ;
+
         if (action.payload != null) {
             let allData = action.payload
             console.log(initialState.papers)
