@@ -3,6 +3,7 @@ import { actions } from '../actions/staticAction'
 
 // ---------------A function that extracts the jwt from the cookies----------------
 export const getCookie = (c_name) => {
+
   if (document.cookie.length > 0) {
     let c_start = document.cookie.indexOf(c_name + '=');
     if (c_start !== -1) {
@@ -19,21 +20,23 @@ export const getCookie = (c_name) => {
 
 //I want to get the kind of the jwt according to the url
 
-// let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI4dEZnM08xQW5mVmRkamdEWVFKaWkzcXNFM2gxIiwiZW1haWwiOiJ0c0BnbWFpbC5jb20iLCJpYXQiOjE2MTUzNjU2ODh9.znsJQnFsJVc0ehuT-Rk57gnyDuwtOoKxfdz8Kfo5iw8";
 let jwt = ""
 
 const getJwt = (url) => {
-  url.href.includes('dev') ?
-    jwt = document.cookie.includes('devJwt') ?
-      document.cookie.split(";")
-        .filter(s => s.includes('devJwt'))[0].split("=").pop() : null
-    : url.href.includes('stg') ?
-      jwt = document.cookie.includes('stgJwt') ?
-        document.cookie.split(";")
-          .filter(s => s.includes('stgJwt'))[0].split("=").pop() : null
-      : jwt = document.cookie.includes('jwt') ?
-        document.cookie.split(";")
-          .filter(s => s.includes('jwt'))[0].split("=").pop() : null
+  debugger
+  // document.cookie && document.cookie.includes("devJwt") ? document.cookie.split(";")
+
+  // url.href.includes('dev') ?
+  jwt = document.cookie.includes('devJwt') ?
+    document.cookie.split(";")
+      .filter(s => s.includes('devJwt'))[0].split("=").pop() : null
+  // : url.href.includes('stg') ?
+  //   jwt = document.cookie.includes('stgJwt') ?
+  //     document.cookie.split(";")
+  //       .filter(s => s.includes('stgJwt'))[0].split("=").pop() : null
+  //   : jwt = document.cookie.includes('jwt') ?
+  //     document.cookie.split(";")
+  //       .filter(s => s.includes('jwt'))[0].split("=").pop() : null
 
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
@@ -179,6 +182,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 export const extractJwt = ({ dispatch, getState }) => next => action => {
   if (action.type === 'EXTRACT_JWT') {
 
+
     let params = (new URL(document.location)).searchParams;
     let jwtGlobal = params.get('jwt');
     if (jwtGlobal) {
@@ -188,7 +192,7 @@ export const extractJwt = ({ dispatch, getState }) => next => action => {
       let date = new Date(Date.now() + 86400e3);
       date = date.toUTCString();
       var expires = "expires=" + date;
-      document.cookie = "devJwt" + "=" + jwtGlobal + ";" + expires + ";path=/";
+      document.cookie = "devJwt" + "=" + jwtGlobal + ";" + expires + ";domain=.dev.leader.codes;path=/";
       window.location.replace(newUrl)
     }
     else {

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import $ from 'jquery'
+
 import box from '../../assets/images/box.svg';
 import crm from '../../assets/images/crm.svg';
 import papers from '../../assets/images/papers.svg';
@@ -251,7 +253,12 @@ function SourcesCards(props) {
             <div className="warpDiv space row  offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="height col-12 d-flex justify-content-center">
                     <div className="imgProfil in-small-profil mt-3 align-items-center">
-                        {props.inMore ? "" : <div className="inmore"></div>}
+                        {props.inMore ? " " :
+                            <>
+                                <div className="inmore"></div>
+
+                            </>
+                        }
                         {/* <Tooltip placement="top" arrow title="Profile setting" aria-label="add">
                             <img className="imgProfil imgProfilinsmall"
                                 onClick={navigateProfil} alt="img 1"
