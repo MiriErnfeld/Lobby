@@ -57,8 +57,9 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         return res.json();
       })
       .then((result) => {
-
+        debugger
         dispatch(actions.setUser(result));
+        console.log("All User Details" + result);
         //  fetch to get sum of Deals-(Project) for user-----------------
         fetch(`https://contacts.dev.leader.codes/api/deal/${userName}/getAllDealsByUser`, {
           method: 'GET',

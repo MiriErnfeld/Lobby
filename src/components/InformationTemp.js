@@ -286,7 +286,7 @@ export default withStyles(useStyles)(function Information() {
                         <div className="col-3.5" style={{ direction: "rtl" }}>
                         </div>
                     </div>‏
-             <Grid container spacing={4} style={{ marginLeft: "3px" }}>
+                            <Grid container spacing={4} style={{ marginLeft: "4px" }}>
                         <Grid item xs={12} sm={3} >
                             <Paper className="paperOne" onClick={() => { window.open(` https://contacts.dev.leader.codes/${user.username}`) }}
                                 style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#fff', height: ' 100px', width: '240px', color: '#DDA204' }}>
