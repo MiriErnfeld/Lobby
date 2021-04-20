@@ -114,7 +114,7 @@ color: #000000 !important;
     margin-left: -20px;
 }
 .nav2{
-    margin-left: 135px;
+    margin-left: 44px;
 }
 
 .navbar{
@@ -194,6 +194,17 @@ color: #000000 !important;
     flex-basis: 50% !important;
 }
 }
+@media (min-width: 769px)and (max-width:949px){
+    .nav2 {
+        margin-left: 38px !important;
+}
+.nav2 {
+    margin-left: 44px !important;
+}
+.navmy {
+    margin-left: -21px !important;
+
+}
 @media (min-width: 1024px)and (max-width:1030px){
     .nav2 {
         margin-left: 58px;
@@ -213,4 +224,5 @@ color: #000000 !important;
         margin-top: 47px;
         /* margin-bottom: 48px; */
         margin-left: 4%;}
+}
 }
