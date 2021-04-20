@@ -11,7 +11,7 @@ Modified files:
 
 Created files:
 * .autogit/logs/log-19-3-2021-10-12-27.txt
-* build0/favicon.ico
+
 * build0/index.html
 * build0/static/css/main.d6a23529.chunk.css
 * build0/static/css/main.d6a23529.chunk.css.map
@@ -23,7 +23,7 @@ Created files:
 
 
 Deleted files:
-* build5/favicon.ico
+
 * build5/index.html
 * build5/laeder.png
 * build5/logo512.png
