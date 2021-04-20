@@ -3,7 +3,7 @@ import { actions } from '../actions/staticAction'
 
 // ---------------A function that extracts the jwt from the cookies----------------
 export const getCookie = (c_name) => {
-
+  debugger
   if (document.cookie.length > 0) {
     let c_start = document.cookie.indexOf(c_name + '=');
     if (c_start !== -1) {
@@ -23,19 +23,19 @@ export const getCookie = (c_name) => {
 let jwt = ""
 
 const getJwt = (url) => {
-
+  debugger
   // document.cookie && document.cookie.includes("devJwt") ? document.cookie.split(";")
   // url.href.includes('dev') ?
   jwt = document.cookie.includes('devJwt') ?
     document.cookie.split(";")
-      .filter(s => s.includes('devJwt'))[0].split("=").pop() : null
-  // : url.href.includes('stg') ?
-  //   jwt = document.cookie.includes('stgJwt') ?
-  //     document.cookie.split(";")
-  //       .filter(s => s.includes('stgJwt'))[0].split("=").pop() : null
-  //   : jwt = document.cookie.includes('jwt') ?
-  //     document.cookie.split(";")
-  //       .filter(s => s.includes('jwt'))[0].split("=").pop() : null
+      .filter(s => s.includes('devJwt'))[0].split("=").pop()
+    : url.href.includes('stg') ?
+      jwt = document.cookie.includes('stgJwt') ?
+        document.cookie.split(";")
+          .filter(s => s.includes('stgJwt'))[0].split("=").pop() : null
+      : jwt = document.cookie.includes('jwt') ?
+        document.cookie.split(";")
+          .filter(s => s.includes('jwt'))[0].split("=").pop() : null
 
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
