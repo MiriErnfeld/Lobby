@@ -75,7 +75,7 @@ export default function ApexChart() {
       // viewWindow: { min: 0 }, /*this also makes 0 = min value*/
       // format: '0',
 
-      colors: ['rgb(221, 162, 4)', 'rgb(14, 186, 165)', 'rgb(103, 114, 222)', 'rgb(253, 36, 67)'],
+      colors: ['rgb(221, 162, 4)', 'rgb(14, 186, 165)', 'rgb(103, 114, 222)', 'rgb(255, 69, 96)'],
       plotOptions: {
         bar: {
           borderRadius: 6,
