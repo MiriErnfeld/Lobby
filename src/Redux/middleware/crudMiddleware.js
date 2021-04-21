@@ -158,9 +158,10 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           .then((data) => data.json())
           .then((data) => {
             debugger
-            if (!data.status) {
-
-              let contactData = data
+            let AllData = data.contact
+            
+            if (!AllData.status) {
+              let contactData = AllData
               //only sumContact
               if (contactData && contactData.length !== 0) {
                 let sumContact = (contactData.length)
