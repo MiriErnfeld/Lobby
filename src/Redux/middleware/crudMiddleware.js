@@ -156,13 +156,14 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           },
         })
           .then((data) => data.json())
-          .then((dataContact) => {
-
+          .then((data) => {
+            debugger
             if (!data.status) {
-              let contactData = dataContact
+
+              let contactData = data
               //only sumContact
               if (contactData && contactData.length !== 0) {
-                let sumContact = (dataContact.length)
+                let sumContact = (contactData.length)
                 dispatch(actions.setContactStatic(sumContact));
                 dispatch(actions.setContactData(contactData));
                 dispatch(actions.setContactChart(contactData));
