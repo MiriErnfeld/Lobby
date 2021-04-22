@@ -8,6 +8,9 @@
     object-fit: cover;
   
 } */
+.grid-container{
+  margin-left: 4px !important;
+}
 .myCard{
     width: 11rem;
     border-radius: 7px;
@@ -145,6 +148,21 @@
         margin-bottom: 38px;
     }
   }
+  @media (min-width:2560px){
+    .in-large{
+      max-width: 65%;
+    }
+    .grid-container{
+      margin-left: 556px !important;
+      max-width: 52%;
+    }
+    .nav2 {
+      margin-left: 145px !important;
+  }
+
+    .nav {
+    margin-left: 72px !important;
+  }
   @media only screen and (max-width: 376px) {
 
   }
@@ -152,9 +170,9 @@
 
   }
   @media screen and (min-width: 700px) and (max-width: 900px){
-
+  }
     .navmy{
-     margin-left: 160px;
+     margin-left: 160px !important;
     
 }
   }
@@ -163,3 +181,5 @@
     width: 120%;
     max-width: 120%;
   }}
+
+  

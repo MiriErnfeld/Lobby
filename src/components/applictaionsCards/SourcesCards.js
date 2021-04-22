@@ -203,7 +203,7 @@ function SourcesCards(props) {
     const showApps = (apps) => {
 
         return (
-            <div className="row all-apps-in-small">
+            <div className="row all-apps-in-small in-large">
                 {apps.map((card) => card &&
                     <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xs-12 mb-5 d-flex justify-content-center">
                         <div class="box myCard"

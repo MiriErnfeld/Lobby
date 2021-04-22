@@ -100,14 +100,14 @@ font-size: 17px;
      color: #000000 !important;  
 }
 .nav{
-    flex-wrap: nowrap;
-    margin-left: -20px;
+    flex-wrap: nowrap !important;
+    margin-left: -20px !important;
 }
 .nav2{
-    margin-left: 44px;
+    margin-left: 44px !important;
 }
 .navbar{
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
 }
 .circle-menu-container{
     display: none; 
@@ -141,10 +141,10 @@ font-size: 17px;
         margin-right: 0 !important;
     }
     .navbar{
-        width: 100%;
+        width: 100% !important;
         justify-content: center !important;
-        margin-top: -21px;
-        margin-left: 8px
+        margin-top: -21px !important;
+        margin-left: 8px !important;
     }
     .is-small{
         margin-top: 29px;
@@ -188,9 +188,10 @@ font-size: 17px;
     margin-left: -21px !important;
 
 }
+
 @media (min-width: 1024px)and (max-width:1030px){
     .nav2 {
-        margin-left: 58px;
+        margin-left: 58px !important;
     }
 }
     @media only screen and (max-width: 600px) {
