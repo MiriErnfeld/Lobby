@@ -41,7 +41,7 @@
      flex-wrap: wrap;
     }
     #chart:nth-of-type(1) svg{
-        margin-top:-98px!important;
+        margin-top: -57px !important;
         margin-left: 20px !important;
     }
     .container-chart{
