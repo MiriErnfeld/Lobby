@@ -63,7 +63,6 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           },
         }).then((data) => data.json())
           .then((data) => {
-            checkPermission(dataContact).then((ifOk) => {
               if (!data.status) {
                 debugger
                 //all data for project
@@ -78,14 +77,12 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
                   dispatch(actions.setProjectChart(projectData));
                   console.log(data)
                 }
-              } else {
+               else {
                 dispatch(actions.setProjectStatic("0"));
                 dispatch(actions.setProjectData(null));
                 dispatch(actions.setProjectChart(null));
               }
-            }
-
-            )
+              }
           })
 
         // fetch to get sum tasks for user-------------
