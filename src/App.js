@@ -13,6 +13,8 @@ function App() {
   return (
     <>
       <Provider store={store}>
+      <ProtectedRoute path={"/admin/:userName"}
+       user={TokenToString} component={Warp} />
         <InformationTemp />
       </Provider>
     </>

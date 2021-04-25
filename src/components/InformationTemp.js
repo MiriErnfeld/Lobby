@@ -96,7 +96,7 @@ const useStyles = () => ({
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
     },
 })
-export default withStyles(useStyles)(function Information() {
+export default  withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const user = ReducerData.user
     const dispatch = useDispatch()
