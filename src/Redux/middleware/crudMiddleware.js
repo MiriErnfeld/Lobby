@@ -1,17 +1,6 @@
 import { data } from 'jquery';
 import { actions } from '../actions/staticAction'
 
-function checkPermission(result) {
-  return new Promise((resolve, reject) => {
-    if (result.status === 401) {
-      window.location.href = `https://accounts.codes/lobby/login`;
-      reject(false)
-
-    }
-    resolve(true)
-
-  })
-}
 
 
 // ---------------A function that extracts the jwt from the cookies----------------
@@ -76,7 +65,6 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           .then((data) => {
             checkPermission(dataContact).then((ifOk) => {
               if (!data.status) {
-                // checkPermission(data)
                 debugger
                 //all data for project
                 let projectData = data

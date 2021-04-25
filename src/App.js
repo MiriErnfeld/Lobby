@@ -1,8 +1,10 @@
 import { Provider } from 'react-redux';
+import { useSelector } from 'react-redux'
 
 import './App.css';
 import store from './Redux/staticStore';
 import InformationTemp from './components/InformationTemp';
+import ProtectedRoute from './components/ProtectedRoutes'
 
 
 
@@ -10,12 +12,12 @@ import InformationTemp from './components/InformationTemp';
 
 
 function App() {
+  const Data = useSelector(state => state.staticDetailsReducer)
+  const TokenToString = Data.jwt
   return (
     <>
       <Provider store={store}>
-      <ProtectedRoute path={"/admin/:userName"}
-       user={TokenToString} component={Warp} />
-        <InformationTemp />
+        <ProtectedRoute user={TokenToString} component={InformationTemp} />
       </Provider>
     </>
   );
