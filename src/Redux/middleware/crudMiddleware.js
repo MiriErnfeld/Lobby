@@ -1,6 +1,23 @@
 import { data } from 'jquery';
 import { actions } from '../actions/staticAction'
 
+
+
+function checkPermission(result) {
+  return new Promise((resolve, reject) => {
+    if (result.status === 401) {
+      window.location.href = result.routes ?
+        `https://accounts.codes/contacts/login?routes=${result.routes}` :
+        `https://accounts.codes/lobby/login`;
+      reject(false)
+
+    }
+    resolve(true)
+
+  })
+}
+
+
 // ---------------A function that extracts the jwt from the cookies----------------
 export const getCookie = (c_name) => {
   debugger
@@ -24,18 +41,10 @@ let jwt = ""
 
 const getJwt = (url) => {
   debugger
-  // document.cookie && document.cookie.includes("devJwt") ? document.cookie.split(";")
-  // url.href.includes('dev') ?
   jwt = document.cookie.includes('devJwt') ?
     document.cookie.split(";")
       .filter(s => s.includes('devJwt'))[0].split("=").pop()
-    : url.href.includes('stg') ?
-      jwt = document.cookie.includes('stgJwt') ?
-        document.cookie.split(";")
-          .filter(s => s.includes('stgJwt'))[0].split("=").pop() : null
-      : jwt = document.cookie.includes('jwt') ?
-        document.cookie.split(";")
-          .filter(s => s.includes('jwt'))[0].split("=").pop() : null
+    : null
 
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
