@@ -70,7 +70,7 @@ font-size: 17px;
 .gouge div{
    position: absolute;
    top: 19px;
-   right: 3%;
+   right: -10%;
    transform: translate(-50%, 0px);
 }
 .is-small1{
@@ -182,6 +182,7 @@ font-size: 17px;
     flex-basis: 50% !important;
 }
 }
+
 @media (min-width: 769px)and (max-width:949px){
     .nav2 {
         margin-left: 38px !important;
@@ -192,6 +193,11 @@ font-size: 17px;
 .navmy {
     margin-left: -21px !important;
 
+}
+}
+@media (min-width: 750px)and (max-width:770px){
+    .gouge div{
+       right:-4% !important;
 }
 }
     @media only screen and (max-width: 600px) {
