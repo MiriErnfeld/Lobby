@@ -7,8 +7,6 @@ import BarT from './BarT'
 import ChartT from './ChartT'
 import './chart.css'
 
-
-
 let circleStyle1 = {
     padding: 6,
     margin: 6,
@@ -60,7 +58,6 @@ export default function TryChart() {
     return (
         <>
             <div className="container mt-5 container-chart" >
-
                 <div className=" d-flex justify-content-between align-items-center myClass in-small-screen">
                     <div className="marginClass">
                         <BarT></BarT>
@@ -81,10 +78,6 @@ export default function TryChart() {
                             <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
                         </Navbar>
                     </div>
-                    {/* <div className="text-time-revers-container"> </div> */}
-                    {/* <div className="marginClass total-chart" >
-                        <TotalChart></TotalChart>
-                    </div> */}
                     <div className="marginClass1">
                         <ChartT></ChartT>
                         <div class="add-div">

@@ -14,7 +14,6 @@ export default function App() {
             height={100}
             fluidWidth={false}
             valueTextFontSize={'0px'}
-            // labelFontSize={'100px'}
             needleHeightRatio={0.4}
             ringWidth={16}
             maxValue={500}

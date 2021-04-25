@@ -1,5 +1,4 @@
 
-
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 
@@ -7,7 +6,6 @@ import './chart.css'
 
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
-
   const state = {
     series: [{
       name: " ",
@@ -71,9 +69,6 @@ export default function ApexChart() {
         },
 
       },
-      // minValue: 4,
-      // viewWindow: { min: 0 }, /*this also makes 0 = min value*/
-      // format: '0',
 
       colors: ['rgb(221, 162, 4)', 'rgb(14, 186, 165)', 'rgb(103, 114, 222)', 'rgb(255, 69, 96)'],
       plotOptions: {
@@ -94,15 +89,6 @@ export default function ApexChart() {
         display: false
       },
       tooltip: {
-
-        // callbacks: {
-        //   label: function (tooltipItem, data) {
-        //     var tooltipValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-        //     return parseInt(tooltipValue).toLocaleString();
-        //   }
-        // },
-
-
         enabled: true,
         enabledOnSeries: undefined,
         shared: false,

@@ -26,9 +26,6 @@ import GougeTask from './GougeTask'
 import GougeDeals from './GougeDeals'
 import GougePaper from './GougePaper'
 
-
-
-
 // -------get new date in correct format to filter data----------------------------------------------------
 
 let currentDate = moment().format("MM/DD/YYYY");
@@ -304,8 +301,6 @@ export default  withStyles(useStyles)(function Information() {
                                     <div className="gouge">
                                         <Gouge2 className="gouge1"></Gouge2></div>
                                     {/* <div onClick={"https://pay.leader.codes/"} className="upladge" style={{ backgroundColor: "#DDA204" }}>upradge</div> */}
-
-
                                 </div>
                                 <div className="row" style={{ margin: '1px', fontWeight: 'bolder' }}>
                                 </div>
@@ -354,7 +349,6 @@ export default  withStyles(useStyles)(function Information() {
                                         <GougeDeals className="gouge1"></GougeDeals></div>
                                     {/* <div
                                         onClick={() => {
-                                             
                                             window.location.assign(`https://pay.leader.codes/`)
                                         }}
                                         className="upladge" style={{ backgroundColor: "#5475E3" }}>upradge</div> */}
@@ -363,7 +357,6 @@ export default  withStyles(useStyles)(function Information() {
                         </Grid>
                         <Grid item xs={12} sm={3}  >
                             <Paper className="paperFour"
-
                                 onClick={() => {
                                     window.open(` 
                             https://reacthub.dev.leader.codes/${user.username}/myTasks`)

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { Route, Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Route } from 'react-router-dom';
 import configData from './config.json'
 import { useSelector } from "react-redux"
 

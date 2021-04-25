@@ -9,13 +9,9 @@ import './chart.css'
 
 
 export default function ApexChart() {
-  ;
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
   console.log(UpdatedData);
-  ;
-  ;
   let currentYear = moment().format("YYYY")
-    ;
   const state = {
     series: [
 
