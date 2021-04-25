@@ -101,18 +101,21 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           .then((data) => data.json())
           .then((data) => {
             if (!data.status) {
+              debugger
               //all data for project
               let taskData = data.userTasksList
+              debugger
               //only sumTask
               if (taskData && taskData.length !== 0) {
                 let sumTask = (data.countTasksForUser)
                 dispatch(actions.setTaskStatic(sumTask));
                 dispatch(actions.setTaskData(taskData));
                 dispatch(actions.setTaskChart(taskData));
-                console.log(data)
+                console.log("task data!!!!!!!!@@@@@" + data)
               }
             }
             else {
+              debugger
               dispatch(actions.setTaskStatic("0"));
               dispatch(actions.setTaskData(null));
               dispatch(actions.setTaskChart(null));
