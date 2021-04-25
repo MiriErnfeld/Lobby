@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Route, Redirect } from 'react-router-dom';
 import configData from './config.json'
+import { useSelector } from "react-redux"
 
 function redirectToLogin(routes) {
     window.location.href =
@@ -8,6 +9,8 @@ function redirectToLogin(routes) {
     return null
 }
 const ProtectedRoute = ({ component: Component, user, ...rest }) => {
+    const Data = useSelector(state => state.staticDetailsReducer)
+    const TokenToString = Data.jwt
     const [isLoading, setIsLoading] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     let routes = rest.computedMatch.params.nameVideo;
@@ -19,7 +22,7 @@ const ProtectedRoute = ({ component: Component, user, ...rest }) => {
             let response = await fetch(url, {
                 method: 'GET',
                 headers: {
-                    Authorization: user,
+                    Authorization: TokenToString,
                     Accept: 'application/json',
                     'Content-Type': 'application/json'
                 },
