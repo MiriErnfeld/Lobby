@@ -19,7 +19,7 @@ function App() {
   return (
 
     <Provider store={store}>
-      <ProtectedRoute path="/"  component={InformationTemp} />
+      <ProtectedRoute path="/:userName" component={InformationTemp} />
     </Provider>
 
 

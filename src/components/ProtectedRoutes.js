@@ -13,7 +13,6 @@ const ProtectedRoute = ({ component: Component, user, ...rest }) => {
     const TokenToString = Data.jwt
     const [isLoading, setIsLoading] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    let routes = rest.computedMatch.params.nameVideo;
     let userName = rest.computedMatch.params.userName;
     useEffect(() => {
         const isLocal = window.location.hostname == "localhost"
@@ -39,7 +38,7 @@ const ProtectedRoute = ({ component: Component, user, ...rest }) => {
     }, [])
 
     return isLoading ? null : isLoggedIn ?
-        redirectToLogin(routes)
+        redirectToLogin()
         : <Route {...rest} render={props => { return <Component {...rest} {...props} /> }} />
 }
 export default ProtectedRoute
