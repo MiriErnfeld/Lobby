@@ -1,14 +1,10 @@
 import { data } from 'jquery';
 import { actions } from '../actions/staticAction'
 
-
-
 function checkPermission(result) {
   return new Promise((resolve, reject) => {
     if (result.status === 401) {
-      window.location.href = result.routes ?
-        `https://accounts.codes/contacts/login?routes=${result.routes}` :
-        `https://accounts.codes/lobby/login`;
+      window.location.href = `https://accounts.codes/lobby/login`;
       reject(false)
 
     }
@@ -78,27 +74,32 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           },
         }).then((data) => data.json())
           .then((data) => {
-            if (!data.status) {
-              debugger
-              //all data for project
-              let projectData = data
-              //only sumProject
-              if (projectData && projectData.length !== 0) {
+            checkPermission(dataContact).then((ifOk) => {
+              if (!data.status) {
+                // checkPermission(data)
                 debugger
-                // let sumProject = data.countProjectsForUser
-                let result = projectData.result.length
-                dispatch(actions.setProjectStatic(result));
-                dispatch(actions.setProjectData(projectData));
-                dispatch(actions.setProjectChart(projectData));
-                console.log(data)
+                //all data for project
+                let projectData = data
+                //only sumProject
+                if (projectData && projectData.length !== 0) {
+                  debugger
+                  // let sumProject = data.countProjectsForUser
+                  let result = projectData.result.length
+                  dispatch(actions.setProjectStatic(result));
+                  dispatch(actions.setProjectData(projectData));
+                  dispatch(actions.setProjectChart(projectData));
+                  console.log(data)
+                }
+              } else {
+                dispatch(actions.setProjectStatic("0"));
+                dispatch(actions.setProjectData(null));
+                dispatch(actions.setProjectChart(null));
               }
             }
-            else {
-              dispatch(actions.setProjectStatic("0"));
-              dispatch(actions.setProjectData(null));
-              dispatch(actions.setProjectChart(null));
-            }
+
+            )
           })
+
         // fetch to get sum tasks for user-------------
         fetch(`https://reacthub.dev.leader.codes/api/${userName}/getAllTasksForUser`, {
           method: 'GET',
