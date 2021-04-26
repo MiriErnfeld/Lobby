@@ -21,8 +21,6 @@ function App() {
     <Provider store={store}>
       <ProtectedRoute path="/:userName" component={InformationTemp} />
     </Provider>
-
-
   );
 }
 
