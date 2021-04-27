@@ -12,7 +12,7 @@ import ProtectedRoute from './components/ProtectedRoutes'
 function App() {
   return (
     <Provider store={store}>
-      <ProtectedRoute path="/:userName" component={InformationTemp} />
+      <ProtectedRoute path={"/:userName"} component={InformationTemp} />
     </Provider>
   );
 }
