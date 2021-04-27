@@ -40,9 +40,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
         }
         isPermission()
     }, [])
-
     return isLoading ? null : isLoggedIn ?
         redirectToLogin()
-        : <Route {...rest} render={props => { return <Component {...rest} {...props} /> }} />
+        : <Route {...rest} render=
+        {props => { return <Component {...rest} {...props} /> }} />
 }
 export default ProtectedRoute
