@@ -8,14 +8,13 @@ function redirectToLogin(routes) {
         `https://accounts.codes/lobby/login`;
     return null
 }
-const ProtectedRoute = ({ component: Component, ...rest }) => {
+const ProtectedRoute = ({ component: Component, user, ...rest }) => {
     const Data = useSelector(state => state.staticDetailsReducer)
     const TokenToString = Data.jwt
     const [isLoading, setIsLoading] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     debugger
-    let userName = rest.params.userName;
-    // let userName = rest.path.split('/')[1];
+    let userName = rest.computedMatch.params.userName;
     // let url = window.location;
     // let userName = (url.pathname.split('/')[1]);
     useEffect(() => {
@@ -40,9 +39,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
         }
         isPermission()
     }, [])
+
     return isLoading ? null : isLoggedIn ?
         redirectToLogin()
-        : <Route {...rest} render=
-        {props => { return <Component {...rest} {...props} /> }} />
+        : <Route {...rest} render={props => { return <Component {...rest} {...props} /> }} />
 }
 export default ProtectedRoute
