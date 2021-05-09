@@ -14,9 +14,10 @@ const ProtectedRoute = ({ component: Component, user, ...rest }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     debugger
-    let userName = rest.computedMatch.params.userName;
+    // let userName = rest.computedMatch.params.userName;
     // let url = window.location;
     // let userName = (url.pathname.split('/')[1]);
+    let userName = window.location.pathname.split('/')[1];
     useEffect(() => {
         const isLocal = window.location.hostname == "localhost"
         const url = `${configData.BASE_URL}${userName}/isPermission?isLocal=${isLocal}`;
