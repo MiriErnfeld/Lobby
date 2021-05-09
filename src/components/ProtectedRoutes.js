@@ -8,17 +8,17 @@ function redirectToLogin(routes) {
         `https://accounts.codes/lobby/login`;
     return null
 }
-// const ProtectedRoute = ({ component: Component, user, ...rest }) => {
-const ProtectedRoute = ({ component: Component }) => {
+const ProtectedRoute = ({ component: Component, user, ...rest }) => {
+// const ProtectedRoute = ({ component: Component }) => {
     const Data = useSelector(state => state.staticDetailsReducer)
     const TokenToString = Data.jwt
     const [isLoading, setIsLoading] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     debugger
-    // let userName = rest.computedMatch.params.userName;
+    let userName = rest.computedMatch.params.userName;//not recived rest from props
     // let url = window.location;
     // let userName = (url.pathname.split('/')[1]);
-    let userName = window.location.pathname.split('/')[1];
+    // let userName = window.location.pathname.split('/')[1];
     useEffect(() => {
         const isLocal = window.location.hostname == "localhost"
         const url = `${configData.BASE_URL}${userName}/isPermission?isLocal=${isLocal}`;
