@@ -17,8 +17,6 @@ const initialState = {
     tasks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     contacts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     user: {}
-
-
 };
 
 const staticData = {
@@ -74,7 +72,6 @@ const staticData = {
             state.tasks = [...arr];
         }
     },
-
     setProjectChart(state = initialState, action) {
         if (action.payload != null) {
             let allData = action.payload.result
@@ -146,12 +143,9 @@ const staticData = {
             state.papers = [...arr];
         }
     },
-
-
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
     },
-
     setContactData(state, action) {
         state.AllContact = action.payload
     },
