@@ -84,7 +84,7 @@ function SourcesCards(props) {
             overColor: "#FAFFF5",
             overImg: hoverHub,
             img: hub,
-            url: `https://reacthub.dev.leader.codes/${ReducerData.user.username}`,
+            url: `https://reacthub.dev.leader.codes/${ReducerData.user.username}/hub`,
             leader: true
         },
         // {
@@ -253,7 +253,7 @@ function SourcesCards(props) {
             <div className="warpDiv space row  offset-2 col-8  d-flex justify-content-center align-items-center">
                 <div className="height col-12 d-flex justify-content-center">
                     <div className="imgProfil in-small-profil mt-3 align-items-center">
-                        {props.inMore ?" "
+                        {props.inMore ? " "
                             // $(".space").css("margin-top", "unset")
                             :
                             <div className="inmore"></div>
