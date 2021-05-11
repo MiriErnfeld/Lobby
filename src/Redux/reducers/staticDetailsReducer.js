@@ -28,7 +28,7 @@ const staticData = {
 
     setUserName(state, action) {
 
-        state.user.userName = (action.payload);
+        state.user.username = (action.payload);
     },
     setUser(state, action) {
 
