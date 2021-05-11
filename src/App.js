@@ -12,9 +12,9 @@ import './App.css';
 function App() {
   return (
     <Provider store={store}>
-      <ProtectedRoute component={Information} />
+      {/* <ProtectedRoute component={Information} /> */}
       {/* <ProtectedRoute path={"/:userName"} component={Information} /> */}
-      {/* <Information></Information> */}
+      <Information></Information>
     </Provider>
   );
 }

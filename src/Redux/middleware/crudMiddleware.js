@@ -39,6 +39,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     let userName = (url.pathname.split('/')[1]);
     getJwt(url);
     dispatch(actions.setJwt(jwt))
+    dispatch(actions.setUserName(userName))
 
     return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
       {
@@ -63,26 +64,26 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           },
         }).then((data) => data.json())
           .then((data) => {
-              if (!data.status) {
+            if (!data.status) {
+              debugger
+              //all data for project
+              let projectData = data
+              //only sumProject
+              if (projectData && projectData.length !== 0) {
                 debugger
-                //all data for project
-                let projectData = data
-                //only sumProject
-                if (projectData && projectData.length !== 0) {
-                  debugger
-                  // let sumProject = data.countProjectsForUser
-                  let result = projectData.result.length
-                  dispatch(actions.setProjectStatic(result));
-                  dispatch(actions.setProjectData(projectData));
-                  dispatch(actions.setProjectChart(projectData));
-                  console.log(data)
-                }
-               else {
+                // let sumProject = data.countProjectsForUser
+                let result = projectData.result.length
+                dispatch(actions.setProjectStatic(result));
+                dispatch(actions.setProjectData(projectData));
+                dispatch(actions.setProjectChart(projectData));
+                console.log(data)
+              }
+              else {
                 dispatch(actions.setProjectStatic("0"));
                 dispatch(actions.setProjectData(null));
                 dispatch(actions.setProjectChart(null));
               }
-              }
+            }
           })
 
         // fetch to get sum tasks for user-------------
@@ -178,6 +179,9 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         (err) => {
           return err;
         })
+      .catch((err) => {
+        console.log(err);
+      })
   }
   return next(action)
 }

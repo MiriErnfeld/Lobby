@@ -25,6 +25,11 @@ const staticData = {
 
         state.jwt = (action.payload);
     },
+
+    setUserName(state, action) {
+
+        state.user.userName = (action.payload);
+    },
     setUser(state, action) {
 
         state.user = (action.payload);
