@@ -1,8 +1,6 @@
 import { data } from 'jquery';
 import { actions } from '../actions/staticAction'
 
-
-
 // ---------------A function that extracts the jwt from the cookies----------------
 export const getCookie = (c_name) => {
   debugger
@@ -30,7 +28,6 @@ const getJwt = (url) => {
     document.cookie.split(";")
       .filter(s => s.includes('devJwt'))[0].split("=").pop()
     : null
-
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
   // with this type client enter to application:INIT_DATA
