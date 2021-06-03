@@ -26,7 +26,7 @@ function App() {
       {/* <ProtectedRoute path={"/:userName"} component={Information} /> */}
       <Information></Information>
 
-      <Favicon url={''} />
+      {/* <Favicon url={''} /> */}
 
     </Provider>
   );
