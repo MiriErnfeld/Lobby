@@ -7,7 +7,7 @@ import Favicon from 'react-favicon';
 
 ReactDOM.render(
   <>
-    <Favicon url='https://oflisback.github.io/react-favicon/img/github.ico' />
+    <Favicon url='https://files.leader.codes/favicon.ico' />
 
     <React.StrictMode>
       <App />
