@@ -44,7 +44,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       })
       .then((res) => {
         if (res.status === 401) {
-          window.location.assign(`https://accounts.codes/lobby/login`);
+          window.location.assign(`https://dev.accounts.codes/lobby/login`);
         }
         return res.json();
       })
