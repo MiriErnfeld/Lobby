@@ -217,8 +217,7 @@ function SourcesCards(props) {
                                 // console.log(ReducerData.jwt)
 
                                 // console.log(ReducerData.jwt)
-                                
-                                window.open(card.url)
+
                                 window.open(card.url)
 
                                 // else
@@ -278,7 +277,7 @@ function SourcesCards(props) {
                 <div className="title col-12 mb-4 divTitle">
                     <h2 className="title">
                         What do you want to do?
-                </h2>
+                    </h2>
                 </div>‏
 
                 {showApps(leaderApps)}
