@@ -216,7 +216,7 @@ function SourcesCards(props) {
 
                                 // console.log(ReducerData.jwt)
 
-                                // console.log(ReducerData.jwt)
+                                // console.log(Reducer    Data.jwt)
 
                                 window.open(card.url)
 
