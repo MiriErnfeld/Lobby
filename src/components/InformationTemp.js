@@ -8,7 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
-import HeaderLeader from '@leadercodes/leader-header'
+import HeaderLeader from '@leadercodes/header'
+// import HeaderLeader from '@leadercodes/leader-header'
 
 
 import './InformationTemp.css';
@@ -283,7 +284,7 @@ export default withStyles(useStyles)(function Information() {
                         <div className="col-3.5" style={{ direction: "rtl" }}>
                         </div>
                     </div>‏
-                            <Grid container className="grid-container" spacing={4} >
+                    <Grid container className="grid-container" spacing={4} >
                         <Grid item xs={12} sm={3} >
                             <Paper className="paperOne" onClick={() => { window.open(` https://contacts.dev.leader.codes/${user.username}`) }}
                                 style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#fff', height: ' 100px', width: '240px', color: '#DDA204' }}>

@@ -24,10 +24,20 @@ let jwt = ""
 
 const getJwt = (url) => {
   debugger
-  jwt = document.cookie.includes('devJwt') ?
+  let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
+  // const isDev = window.location.href.includes('dev')
+  // let urlAccounts = `https://${isDevOrLocal ? 'dev.' : ''}accounts.codes`
+  // window.location.assign(`${urlAccounts}/lobby/login`);
+
+
+  jwt = isDevOrLocal ? document.cookie.includes('devJwt') ?
     document.cookie.split(";")
       .filter(s => s.includes('devJwt'))[0].split("=").pop()
     : null
+    : document.cookie.includes('prodJwt') ?
+      document.cookie.split(";")
+        .filter(s => s.includes('prodJwt'))[0].split("=").pop()
+      : null
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
   // with this type client enter to application:INIT_DATA
@@ -44,7 +54,10 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       })
       .then((res) => {
         if (res.status === 401) {
-          window.location.assign(`https://dev.accounts.codes/lobby/login`);
+          let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
+          // const isDev = window.location.href.includes('dev')
+          let urlAccounts = `https://${isDevOrLocal ? 'dev.' : ''}accounts.codes`
+          window.location.assign(`${urlAccounts}/lobby/login`);
         }
         return res.json();
       })
@@ -143,7 +156,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
               dispatch(actions.setPaperChart(null));
             }
           })
-        // fetch to get sum of contacts for user----------------------
+        // fetch to get sum of contacts per user----------------------
         fetch(`https://api.dev.leader.codes/${userName}/getContacts/?includesConversations=false`, {
           method: 'GET',
           headers: {
