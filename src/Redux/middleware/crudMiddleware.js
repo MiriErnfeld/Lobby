@@ -1,6 +1,6 @@
 import { data } from 'jquery';
 import { actions } from '../actions/staticAction'
-
+import keys from '../../config/env/keys';
 // ---------------A function that extracts the jwt from the cookies----------------
 export const getCookie = (c_name) => {
   debugger
@@ -25,11 +25,6 @@ let jwt = ""
 const getJwt = (url) => {
   debugger
   let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
-  // const isDev = window.location.href.includes('dev')
-  // let urlAccounts = `https://${isDevOrLocal ? 'dev.' : ''}accounts.codes`
-  // window.location.assign(`${urlAccounts}/lobby/login`);
-
-
   jwt = isDevOrLocal ? document.cookie.includes('devJwt') ?
     document.cookie.split(";")
       .filter(s => s.includes('devJwt'))[0].split("=").pop()
@@ -48,16 +43,18 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     dispatch(actions.setJwt(jwt))
     dispatch(actions.setUserName(userName))
 
+    // return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
     return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
       {
         method: 'GET', headers: { 'authorization': jwt }
       })
       .then((res) => {
         if (res.status === 401) {
-          let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
+          // let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
           // const isDev = window.location.href.includes('dev')
-          let urlAccounts = `https://${isDevOrLocal ? 'dev.' : ''}accounts.codes`
-          window.location.assign(`${urlAccounts}/lobby/login`);
+          // let urlAccounts = `https://${isDevOrLocal ? 'dev.' : ''}accounts.codes`
+          // window.location.assign(`${urlAccounts}/lobby/login`);
+          window.location.assign(`${keys.LOGIN_URL}`);
         }
         return res.json();
       })
@@ -66,7 +63,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         dispatch(actions.setUser(result));
         console.log("All User Details" + result);
         //  fetch to get sum of Deals-(Project) for user-----------------
-        fetch(`https://contacts.dev.leader.codes/api/deal/${userName}/getAllDealsByUser`, {
+        fetch(`${keys.CONTACT_URL}/deal/${userName}/getAllDealsByUser`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
