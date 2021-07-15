@@ -26,6 +26,7 @@ import Gouge2 from './Gouge2'
 import GougeTask from './GougeTask'
 import GougeDeals from './GougeDeals'
 import GougePaper from './GougePaper'
+import keys from '../config/env/keys';
 
 // -------get new date in correct format to filter data----------------------------------------------------
 
@@ -286,7 +287,11 @@ export default withStyles(useStyles)(function Information() {
                     </div>‏
                     <Grid container className="grid-container" spacing={4} >
                         <Grid item xs={12} sm={3} >
-                            <Paper className="paperOne" onClick={() => { window.open(` https://contacts.dev.leader.codes/${user.username}`) }}
+                            <Paper className="paperOne" onClick={() => {
+                                // window.open(` https://contacts.dev.leader.codes/${user.username}`) 
+                                window.open(`${keys.CONTACT_URL}/${user.username}`)
+
+                            }}
                                 style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#fff', height: ' 100px', width: '240px', color: '#DDA204' }}>
                                 <div className="ml-2 total" style={{ textAlign: 'start', fontWeight: 'bolder', color: 'black', fontSize: '12px' }}>
                                     Total Contacts {" "}
@@ -309,7 +314,10 @@ export default withStyles(useStyles)(function Information() {
                             </Paper>
                         </Grid>
                         <Grid item xs={12} sm={3}>
-                            <Paper className="paperTwo" onClick={() => { window.open(`https://papers.dev.leader.codes/admin/${user.username}`) }} style={{ padding: 10, background: '#fff', cursor: 'pointer', color: '#01DCD1', borderRadius: '14px', height: ' 100px', width: '240px' }}>
+                            <Paper className="paperTwo" onClick={() => {
+                                window.open(`${keys.PAPERS_URL}/admin/${user.username}`)
+                                //  window.open(`https://papers.dev.leader.codes/admin/${user.username}`)
+                            }} style={{ padding: 10, background: '#fff', cursor: 'pointer', color: '#01DCD1', borderRadius: '14px', height: ' 100px', width: '240px' }}>
                                 <div className="total" style={{ textAlign: 'start', fontWeight: 'bolder', color: 'black', fontSize: '12px' }}>
                                     Total Papers {" "}
                                 </div>
@@ -331,8 +339,9 @@ export default withStyles(useStyles)(function Information() {
                         <Grid item xs={12} sm={3}  >
                             <Paper className="paperThree"
                                 onClick={() => {
-                                    window.open(` 
-                            https://contacts.dev.leader.codes/${user.username}/deals`)
+                                    window.open(`${keys.CONTACT_URL}/${user.username}/deals`)
+
+                                    // window.open(`https://contacts.dev.leader.codes/${user.username}/deals`)
                                 }}
                                 style={{ cursor: 'pointer', padding: 10, background: '#fff', color: '#5475E3', borderRadius: '14px', height: ' 100px', width: '240px' }}>
                                 <div className="ml-2 total" style={{ textAlign: 'start', fontWeight: 'bolder', color: 'black', fontSize: '12px' }}>
@@ -359,8 +368,9 @@ export default withStyles(useStyles)(function Information() {
                         <Grid item xs={12} sm={3}  >
                             <Paper className="paperFour"
                                 onClick={() => {
-                                    window.open(` 
-                            https://reacthub.dev.leader.codes/${user.username}/myTasks`)
+                                    // window.open(`https://reacthub.dev.leader.codes/${user.username}/myTasks`)
+
+                                    window.open(`${keys.HUB_URL}/${user.username}/myTasks`)
                                 }}
                                 style={{
                                     paddingRight: '5px', paddingTop: '10px', background: '#fff', color: '#FD2443', borderRadius: '14px', cursor: 'pointer'

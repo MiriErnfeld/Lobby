@@ -20,19 +20,24 @@ export const getCookie = (c_name) => {
 
 //I want to get the kind of the jwt according to the url
 
-let jwt = ""
+let jwt = " "
 
 const getJwt = (url) => {
-  debugger
-  let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
-  jwt = isDevOrLocal ? document.cookie.includes('devJwt') ?
-    document.cookie.split(";")
-      .filter(s => s.includes('devJwt'))[0].split("=").pop()
-    : null
-    : document.cookie.includes('prodJwt') ?
-      document.cookie.split(";")
-        .filter(s => s.includes('prodJwt'))[0].split("=").pop()
-      : null
+  //  const t= document.cookie && document.cookie.includes(keys.JWT) ? document.cookie.split(";")
+  //     .filter(s => s.includes(keys.JWT))[0].split("=").pop() : null;
+  document.cookie.split(";")
+    .filter(s => s.includes(keys.JWT))[0].split("=").pop()
+
+  // let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
+  // jwt = isDevOrLocal ? document.cookie.includes('devJwt') ?
+
+  // document.cookie.split(";")
+  //   .filter(s => s.includes('devJwt'))[0].split("=").pop()
+  // : null
+  // : document.cookie.includes('prodJwt') ?ִ
+  //   document.cookie.split(";")
+  //     .filter(s => s.includes('prodJwt'))[0].split("=").pop()
+  //   : null
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
   // with this type client enter to application:INIT_DATA
@@ -44,7 +49,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     dispatch(actions.setUserName(userName))
 
     // return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
-    return fetch(`https://lobby.dev.leader.codes/api/${userName}/getUserByUserName`,
+    return fetch(`${keys.LOBBY_URL}/api/${userName}/getUserByUserName`,
       {
         method: 'GET', headers: { 'authorization': jwt }
       })
@@ -63,7 +68,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         dispatch(actions.setUser(result));
         console.log("All User Details" + result);
         //  fetch to get sum of Deals-(Project) for user-----------------
-        fetch(`${keys.CONTACT_URL}/deal/${userName}/getAllDealsByUser`, {
+        fetch(`${keys.DEALS_URL} /api/deal/${userName}/getAllDealsByUser`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -94,7 +99,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           })
 
         // fetch to get sum tasks for user-------------
-        fetch(`https://reacthub.dev.leader.codes/api/${userName}/getAllTasksForUser`, {
+        fetch(`${keys.HUB_URL}/api/${userName}/getAllTasksForUser`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -125,7 +130,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
             }
           })
         //  fetch to get sum of papers for user-----------------
-        fetch(`https://papers.dev.leader.codes/api/${userName}/getAllQuote`, {
+        fetch(`${keys.PAPERS_URL}/api/${userName}/getAllQuote`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -154,7 +159,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
             }
           })
         // fetch to get sum of contacts per user----------------------
-        fetch(`https://api.dev.leader.codes/${userName}/getContacts/?includesConversations=false`, {
+        fetch(`${keys.CONTACT_URL}/${userName}/getContacts/?includesConversations=false`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -205,7 +210,9 @@ export const extractJwt = ({ dispatch, getState }) => next => action => {
       let date = new Date(Date.now() + 86400e3);
       date = date.toUTCString();
       var expires = "expires=" + date;
-      document.cookie = "devJwt" + "=" + jwtGlobal + ";" + expires + ";domain=.dev.leader.codes;path=/";
+      if (!(document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0]) || document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0] === '')
+        document.cookie = `${keys.JWT}` + "=" + jwtGlobal + ";" + expires + `;domain=.leader.codes;path=/`;
+      // document.cookie = "devJwt" + "=" + jwtGlobal + ";" + expires + ";domain=.dev.leader.codes;path=/";
       window.location.replace(newUrl)
     }
     else {

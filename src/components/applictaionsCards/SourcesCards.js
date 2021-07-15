@@ -36,6 +36,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 // import { Badge } from '@material-ui/core';
 import { animations } from 'react-animation';
 import { useSelector } from 'react-redux';
+import keys from "../../config/env/keys";
 // import { actions } from '../../Redux/actions/staticAction';
 
 
@@ -60,7 +61,7 @@ function SourcesCards(props) {
             overColor: "#EFF7FF",
             img: box,
             overImg: hoverBox,
-            url: `https://box.dev.leader.codes/${ReducerData.user.username}`,
+            url: `${keys.BOX_URL}/${ReducerData.user.username}`,
             leader: true
         },
         // {
@@ -84,7 +85,7 @@ function SourcesCards(props) {
             overColor: "#FAFFF5",
             overImg: hoverHub,
             img: hub,
-            url: `https://reacthub.dev.leader.codes/${ReducerData.user.username}/hub`,
+            url: `${keys.HUB_URL}/${ReducerData.user.username}/hub`,
             leader: true
         },
         // {
@@ -108,7 +109,7 @@ function SourcesCards(props) {
             overColor: "#FCF1FF",
             img: time,
             overImg: hoverTime,
-            url: `https://calendar.dev.leader.codes/${ReducerData.user.username}`,
+            url: `${keys.CALANDER_URL}/${ReducerData.user.username}`,
             leader: true
         },
 
@@ -121,7 +122,7 @@ function SourcesCards(props) {
             overColor: "#FFFAEE",
             overImg: hoverPapers,
             img: papers,
-            url: `https://papers.dev.leader.codes/admin/${ReducerData.user.username}`,
+            url: `${keys.PAPERS_URL}/admin/${ReducerData.user.username}`,
             leader: true
         },
         {
@@ -133,7 +134,7 @@ function SourcesCards(props) {
             overColor: "#F4F2FF",
             overImg: hoverCrm,
             img: crm,
-            url: `https://contacts.dev.leader.codes/${ReducerData.user.username}`,
+            url: `${keys.CONTACT_URL}/${ReducerData.user.username}`,
             leader: true
 
         },
@@ -151,7 +152,7 @@ function SourcesCards(props) {
             overColor: "#FFEAEC",
             overImg: hoverVlogger,
             img: vlogger,
-            url: `https://dev.vloger.codes/admin/${ReducerData.user.username}?jwt=${ReducerData.jwt}`,
+            url: `${keys.VLOGER_URL}/admin/${ReducerData.user.username}?jwt=${ReducerData.jwt}`,
             leader: false
         },
         {
@@ -163,7 +164,7 @@ function SourcesCards(props) {
             overColor: "#F7EBFF",
             overImg: hoverSoundBox,
             img: soundBox,
-            url: `https://quote.dev.leader.codes/${ReducerData.user.username}/NewLead`,
+            url: `${keys.QOUTE_URL}/${ReducerData.user.username}/NewLead`,
             leader: false
         },
         {
@@ -176,7 +177,7 @@ function SourcesCards(props) {
             overImg: hoverKnowme,
             img: knowme,
             // url: `https://quote.dev.leader.codes/saraa/NewLead`
-            url: `https://quote.dev.leader.codes/${ReducerData.user.username}/NewLead`,
+            url: `${keys.QOUTE_URL}/${ReducerData.user.username}/NewLead`,
             leader: false
         },
         {
@@ -189,7 +190,7 @@ function SourcesCards(props) {
             overImg: hoverBLDR,
             img: BLDR,
             // url: `https://quote.dev.leader.codes/sarra/NewLead`
-            url: `https://quote.dev.leader.codes/${ReducerData.user.username}/NewLead`,
+            url: `${keys.QOUTE_URL}/${ReducerData.user.username}/NewLead`,
             leader: false
         }
     ]
@@ -197,7 +198,7 @@ function SourcesCards(props) {
     const navigateProfil = () => {
         let url = window.location;
         let userName = (url.pathname.split('/')[1]);
-        window.open(`https://lobby.dev.leader.codes/${ReducerData.user.username}/profile`);
+        window.open(`${keys.LOBBY_URL}/${ReducerData.user.username}/profile`);
     }
 
     const showApps = (apps) => {
