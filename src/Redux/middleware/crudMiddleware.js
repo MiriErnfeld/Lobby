@@ -35,12 +35,16 @@ let jwt = ""
 //   : null
 
 const getJwt = (url) => {
+
+
+  let params = (new URL(document.location)).searchParams;
+  let jwtGlobal = params.get('jwt');
   debugger
   if (!(document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0]) || document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0] === '')
     document.cookie = `${keys.JWT}` + "=" + jwtGlobal + ";" + + `;domain=.leader.codes;path=/`;
 
-  document.cookie && document.cookie.includes(keys.JWT) ? document.cookie.split(";")
-    .filter(s => s.includes(keys.JWT))[0].split("=").pop() : null;
+  // document.cookie && document.cookie.includes(keys.JWT) ? document.cookie.split(";")
+  //   .filter(s => s.includes(keys.JWT))[0].split("=").pop() : null;
 
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
@@ -163,7 +167,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
             }
           })
         // fetch to get sum of contacts per user----------------------
-        fetch(`${CONTACT_URL}/${userName}/getContacts/?includesConversations=false`, {
+        fetch(`${keys.CONTACT_URL}/${userName}/getContacts/?includesConversations=false`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
