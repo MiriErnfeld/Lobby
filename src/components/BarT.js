@@ -10,10 +10,11 @@ export default function ApexChart() {
     series: [{
       name: " ",
 
-      data: [UpdatedData.leaderStatic.sumContacts,
-      UpdatedData.leaderStatic.sumPapers,
-      UpdatedData.leaderStatic.sumProjects,
-      UpdatedData.leaderStatic.sumTasks],
+      data: [10,80,65,3],
+      // data: [UpdatedData.leaderStatic.sumContacts,
+      // UpdatedData.leaderStatic.sumPapers,
+      // UpdatedData.leaderStatic.sumProjects,
+      // UpdatedData.leaderStatic.sumTasks],
     }],
     options: {
 

@@ -20,24 +20,28 @@ export const getCookie = (c_name) => {
 
 //I want to get the kind of the jwt according to the url
 
-let jwt = " "
+let jwt = ""
+
+
+// let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
+// jwt = isDevOrLocal ? document.cookie.includes('devJwt') ?
+
+// document.cookie.split(";")
+//   .filter(s => s.includes('devJwt'))[0].split("=").pop()
+// : null
+// : document.cookie.includes('prodJwt') ?
+//   document.cookie.split(";")
+//     .filter(s => s.includes('prodJwt'))[0].split("=").pop()
+//   : null
 
 const getJwt = (url) => {
-  //  const t= document.cookie && document.cookie.includes(keys.JWT) ? document.cookie.split(";")
-  //     .filter(s => s.includes(keys.JWT))[0].split("=").pop() : null;
-  document.cookie.split(";")
-    .filter(s => s.includes(keys.JWT))[0].split("=").pop()
+  debugger
+  if (!(document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0]) || document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0] === '')
+    document.cookie = `${keys.JWT}` + "=" + jwtGlobal + ";" + + `;domain=.leader.codes;path=/`;
 
-  // let isDevOrLocal = window.location.href.includes('dev') ? window.location.href.includes('dev') : window.location.href.includes('localhost') ? window.location.href.includes('localhost') : null
-  // jwt = isDevOrLocal ? document.cookie.includes('devJwt') ?
+  document.cookie && document.cookie.includes(keys.JWT) ? document.cookie.split(";")
+    .filter(s => s.includes(keys.JWT))[0].split("=").pop() : null;
 
-  // document.cookie.split(";")
-  //   .filter(s => s.includes('devJwt'))[0].split("=").pop()
-  // : null
-  // : document.cookie.includes('prodJwt') ?ִ
-  //   document.cookie.split(";")
-  //     .filter(s => s.includes('prodJwt'))[0].split("=").pop()
-  //   : null
 }
 export const getStaticData = ({ dispatch, getState }) => next => action => {
   // with this type client enter to application:INIT_DATA
@@ -159,7 +163,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
             }
           })
         // fetch to get sum of contacts per user----------------------
-        fetch(`${keys.CONTACT_URL}/${userName}/getContacts/?includesConversations=false`, {
+        fetch(`${CONTACT_URL}/${userName}/getContacts/?includesConversations=false`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -210,9 +214,7 @@ export const extractJwt = ({ dispatch, getState }) => next => action => {
       let date = new Date(Date.now() + 86400e3);
       date = date.toUTCString();
       var expires = "expires=" + date;
-      if (!(document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0]) || document.cookie.split(";").filter(s => s.includes(`${keys.JWT}`))[0] === '')
-        document.cookie = `${keys.JWT}` + "=" + jwtGlobal + ";" + expires + `;domain=.leader.codes;path=/`;
-      // document.cookie = "devJwt" + "=" + jwtGlobal + ";" + expires + ";domain=.dev.leader.codes;path=/";
+      document.cookie = "devJwt" + "=" + jwtGlobal + ";" + expires + ";domain=.dev.leader.codes;path=/";
       window.location.replace(newUrl)
     }
     else {

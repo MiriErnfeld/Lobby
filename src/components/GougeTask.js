@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux'
 export default function App() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     console.log(UpdatedData.leaderStatic.sumProjects + "in gouge2");
-    return (    
+    return (
         <ReactSpeedometer
             value={UpdatedData.leaderStatic.sumTasks}
+            value={400}
             width={100}
             forceRender={true}
             height={100}
